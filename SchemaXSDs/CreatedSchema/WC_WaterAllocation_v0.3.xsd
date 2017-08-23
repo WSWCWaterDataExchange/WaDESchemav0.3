@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:WC="http://www.exchangenetwork.net/schema/WC/0.3" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.exchangenetwork.net/schema/WC/0.3" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="0.1">
+	<xsd:include schemaLocation="WC_AllocationAmount_v0.3.xsd"/>
+	<xsd:include schemaLocation="WC_ConsumptiveUse_v0.3.xsd"/>
+	<xsd:include schemaLocation="WC_Diversion_v0.3.xsd"/>
+	<xsd:include schemaLocation="WC_ReturnFlow_v0.3.xsd"/>
+	<xsd:include schemaLocation="WC_Shared_v0.3.xsd"/>
+	<xsd:include schemaLocation="WC_SiteSpecificLocation_v0.3.xsd"/>
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name:	WC_WaterAllocation_v0.3.xsd
+		Description:	Allocations or water rights assigned to specific entities.
+		Developed By:	WSWC
+		</xsd:documentation>
+	</xsd:annotation>
+	<xsd:element name="WaterAllocation" type="WC:WaterAllocationDataType">
+		<xsd:annotation>
+			<xsd:documentation>Allocations or water rights assigned to specific entities.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="WaterAllocationDataType">
+		<xsd:annotation>
+			<xsd:documentation>Allocations or water rights assigned to specific entities.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="WC:AllocationIdentifier" minOccurs="0"/>
+			<xsd:element ref="WC:AllocationOwnerName" minOccurs="0"/>
+			<xsd:element ref="WC:ApplicationDate" minOccurs="0"/>
+			<xsd:element ref="WC:PriorityDate" minOccurs="0"/>
+			<xsd:element ref="WC:LegalStatusCode" minOccurs="0"/>
+			<xsd:element ref="WC:SiteSpecificLocation" maxOccurs="unbounded"/>
+			<xsd:element ref="WC:AllocationAmount" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="WC:Diversion" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="WC:ConsumptiveUse" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="WC:ReturnFlow" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

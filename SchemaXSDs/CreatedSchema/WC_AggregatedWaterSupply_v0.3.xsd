@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:WC="http://www.exchangenetwork.net/schema/WC/0.3" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.exchangenetwork.net/schema/WC/0.3" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="0.1">
+	<xsd:include schemaLocation="WC_WaterSupplyType_v0.3.xsd"/>
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name:	WC_AggregatedWaterSupply_v0.3.xsd
+		Description:	Aggregated summary of physical water supply (water in streams, reservoirs, snowpack, aquifers, etc.) within the reporting unit for the reporting year.
+		Developed By:	WSWC
+		</xsd:documentation>
+	</xsd:annotation>
+	<xsd:element name="AggregatedWaterSupply" type="WC:AggregatedWaterSupplyDataType">
+		<xsd:annotation>
+			<xsd:documentation>Aggregated summary of physical water supply (water in streams, reservoirs, snowpack, aquifers, etc.) within the reporting unit for the reporting year.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="AggregatedWaterSupplyDataType">
+		<xsd:annotation>
+			<xsd:documentation>Aggregated summary of physical water supply (water in streams, reservoirs, snowpack, aquifers, etc.) within the reporting unit for the reporting year.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="WC:WaterSupplyType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:WC="http://www.exchangenetwork.net/schema/WC/0.3" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.exchangenetwork.net/schema/WC/0.3" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="0.1">
+	<xsd:include schemaLocation="WC_Shared_v0.3.xsd"/>
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name:	WC_AllocatedRate_v0.3.xsd
+		Description:	The rate at which water can be diverted for this allocation or diversion.
+		Developed By:	WSWC
+		</xsd:documentation>
+	</xsd:annotation>
+	<xsd:element name="AllocatedRate" type="WC:AllocatedRateDataType">
+		<xsd:annotation>
+			<xsd:documentation>The rate at which water can be diverted for this allocation or diversion.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="AllocatedRateDataType">
+		<xsd:annotation>
+			<xsd:documentation>The rate at which water can be diverted for this allocation or diversion.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="WC:AmountNumber"/>
+			<xsd:element ref="WC:AmountUnitsCode"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

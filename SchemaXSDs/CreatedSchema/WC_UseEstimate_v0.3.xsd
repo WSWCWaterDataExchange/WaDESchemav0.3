@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:WC="http://www.exchangenetwork.net/schema/WC/0.3" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.exchangenetwork.net/schema/WC/0.3" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="0.1">
+	<xsd:include schemaLocation="WC_Shared_v0.3.xsd"/>
+	<xsd:include schemaLocation="WC_SiteSpecificUseAmount_v0.3.xsd"/>
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name:	WC_UseEstimate_v0.3.xsd
+		Description:	Estimate of water use
+		Developed By:	WSWC
+		</xsd:documentation>
+	</xsd:annotation>
+	<xsd:element name="UseEstimate" type="WC:UseEstimateDataType">
+		<xsd:annotation>
+			<xsd:documentation>Estimate of water use</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="UseEstimateDataType">
+		<xsd:annotation>
+			<xsd:documentation>Estimate of water use</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="WC:BeneficialUseContext"/>
+			<xsd:element ref="WC:BeneficialUseTypeName"/>
+			<xsd:element ref="WC:UseAmount" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

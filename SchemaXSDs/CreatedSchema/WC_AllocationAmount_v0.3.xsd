@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:WC="http://www.exchangenetwork.net/schema/WC/0.3" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.exchangenetwork.net/schema/WC/0.3" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="0.1">
+	<xsd:include schemaLocation="WC_WaterAllocated_v0.3.xsd"/>
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name:	WC_AllocationAmount_v0.3.xsd
+		Description:	Defines the ammount of water attributed to the entire allocation.  If an allocation has diversions associated with it, then report this information for each diversion.
+		Developed By:	WSWC
+		</xsd:documentation>
+	</xsd:annotation>
+	<xsd:element name="AllocationAmount" type="WC:AllocationAmountDataType">
+		<xsd:annotation>
+			<xsd:documentation>Defines the ammount of water attributed to the entire allocation.  If an allocation has diversions associated with it, then report this information for each diversion.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="AllocationAmountDataType">
+		<xsd:annotation>
+			<xsd:documentation>Defines the ammount of water attributed to the entire allocation.  If an allocation has diversions associated with it, then report this information for each diversion.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="WC:WaterAllocated"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:WC="http://www.exchangenetwork.net/schema/WC/0.3" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.exchangenetwork.net/schema/WC/0.3" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="0.1">
+	<xsd:include schemaLocation="WC_Shared_v0.3.xsd"/>
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name:	WC_WFSType_v0.3.xsd
+		Description:	Header for the Web Feature Service Type
+		Developed By:	WSWC
+		</xsd:documentation>
+	</xsd:annotation>
+	<xsd:element name="WFSType" type="WC:WFSTypeDataType">
+		<xsd:annotation>
+			<xsd:documentation>Header for the Web Feature Service Type</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="WFSTypeDataType">
+		<xsd:annotation>
+			<xsd:documentation>Header for the Web Feature Service Type</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="WC:WFSDataCategory"/>
+			<xsd:element ref="WC:WFSTypeName"/>
+			<xsd:element ref="WC:WFSAddressLink"/>
+			<xsd:element ref="WC:WFSFeatureIDFieldText"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

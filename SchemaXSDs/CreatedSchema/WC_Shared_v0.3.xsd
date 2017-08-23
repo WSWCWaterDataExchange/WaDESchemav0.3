@@ -1,0 +1,1211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:WC="http://www.exchangenetwork.net/schema/WC/0.3" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.exchangenetwork.net/schema/WC/0.3" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="0.1">
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name:	WC_Shared_v0.3.xsd
+		Description:	Shared data types for Water Data Exchange submissions
+		Developed By:	WSWC
+		</xsd:documentation>
+	</xsd:annotation>
+
+	<xsd:element name="AcresIrrigatedNumber" type="WC:AcresIrrigatedNumberDataType">
+		<xsd:annotation>
+			<xsd:documentation>Number of acres irrigated using this method.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="ActualAmountNumber" type="WC:ActualAmountNumberDataType">
+		<xsd:annotation>
+			<xsd:documentation>Amout of water diverted.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="ActualAmountUnitsCode" type="WC:ActualAmountUnitsCodeDataType">
+		<xsd:annotation>
+			<xsd:documentation>Unit of measure</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="AggregationInterval" type="WC:AggregationIntervalDataType">
+		<xsd:annotation>
+			<xsd:documentation>The interval value that is used for the aggregation when combined with the unit (below). Most aggregated data in WaDE will be for 1 year or 1 month.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="AggregationIntervalUnit" type="WC:AggregationIntervalUnitDataType">
+		<xsd:annotation>
+			<xsd:documentation>The interval unit that is used for the aggregation statistic. Most aggregated data in WaDE will be in years or months.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="AggregationStatisticText" type="WC:AggregationStatisticTextDataType">
+		<xsd:annotation>
+			<xsd:documentation>A vocabulary for describing the calculated statistic associated with recorded observations. The aggregation statistic is calculated over the time aggregation interval associated with the recorded observation</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="AllocationIdentifier" type="WC:AllocationIdentifierDataType">
+		<xsd:annotation>
+			<xsd:documentation>Unique identifier for the allocation</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="AllocationOwnerName" type="WC:AllocationOwnerNameDataType">
+		<xsd:annotation>
+			<xsd:documentation>Name of the entity with the allocation</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="AmountNumber" type="WC:AmountNumberDataType">
+		<xsd:annotation>
+			<xsd:documentation>Value of amount of water reported, measured, calculated, or estimated.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="AmountUnitsCode" type="WC:AmountUnitsCodeDataType">
+		<xsd:annotation>
+			<xsd:documentation>Unit of measure</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="ApplicationDate" type="WC:ApplicationDateDataType">
+		<xsd:annotation>
+			<xsd:documentation>The date on which the water right was applied for.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="AvailabilityTypeName" type="WC:AvailabilityTypeNameDataType">
+		<xsd:annotation>
+			<xsd:documentation>The type of water available (e.g., snowpack, precipitation, basin inflows, etc.)</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="BeneficialUseContext" type="WC:BeneficialUseContextDataType">
+		<xsd:annotation>
+			<xsd:documentation>Owner for the use type (i.e. state abbreviation)</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="BeneficialUseTypeName" type="WC:BeneficialUseTypeNameDataType">
+		<xsd:annotation>
+			<xsd:documentation>Name of the beneficial use.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="CentroidLatitudeNumber" type="WC:CentroidLatitudeNumberDataType">
+		<xsd:annotation>
+			<xsd:documentation>Latitude of the centroidal location in decimal degrees</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="CentroidLongitudeNumber" type="WC:CentroidLongitudeNumberDataType">
+		<xsd:annotation>
+			<xsd:documentation>Longitude of the centroidal location in decimal degrees</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="CommunityWaterUseName" type="WC:CommunityWaterUseNameDataType">
+		<xsd:annotation>
+			<xsd:documentation>Name of the Community</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="ConsumptiveIndicator" type="WC:ConsumptiveIndicatorDataType">
+		<xsd:annotation>
+			<xsd:documentation>An indication of whether the reported amount represents a consumptive amount or a withdrawn amount</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="CountyFipsCode" type="WC:CountyFipsCodeDataType">
+		<xsd:annotation>
+			<xsd:documentation>County FIPS code (including the state FIPS code) representing the county.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="CropTypeName" type="WC:CropTypeNameDataType">
+		<xsd:annotation>
+			<xsd:documentation>Crop type being irrigated</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="DataConfidenceValue" type="WC:DataConfidenceValueDataType">
+		<xsd:annotation>
+			<xsd:documentation>An indicator of data confidence, should be a confidence interval (e.g. 90%, 50%, etc.)</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="DataCoverageValue" type="WC:DataCoverageValueDataType">
+		<xsd:annotation>
+			<xsd:documentation>An indicator of data coverage (i.e., spatial coverage or completeness of the data)</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="DataQualityValue" type="WC:DataQualityValueDataType">
+		<xsd:annotation>
+			<xsd:documentation>An indicator of data quality or grading (e.g. fair, good, best, unreported), or using the NEMS data quality grading system.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="DiversionIdentifier" type="WC:DiversionIdentifierDataType">
+		<xsd:annotation>
+			<xsd:documentation>Unique identifier for the diversion within this allocation.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="DiversionName" type="WC:DiversionNameDataType">
+		<xsd:annotation>
+			<xsd:documentation>Name for the diversion.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="EmailAddressText" type="WC:EmailAddressTextDataType">
+		<xsd:annotation>
+			<xsd:documentation>Email address data</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="EPSGCode" type="WC:EPSGCodeDataType">
+		<xsd:annotation>
+			<xsd:documentation>Code for projection, with a preference for WGS_1984, EPSG of 4326</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="FaxNumberText" type="WC:FaxNumberTextDataType">
+		<xsd:annotation>
+			<xsd:documentation>Fax Number</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="FirstName" type="WC:FirstNameDataType">
+		<xsd:annotation>
+			<xsd:documentation>First name of a person</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="FreshSalineIndicator" type="WC:FreshSalineIndicatorDataType">
+		<xsd:annotation>
+			<xsd:documentation>Indicates whether the source is fresh water, saline water, or represents the total of both.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="GeneratorTypeName" type="WC:GeneratorTypeNameDataType">
+		<xsd:annotation>
+			<xsd:documentation>The type of generator used to create electricity.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="HydrologicUnitCode" type="WC:HydrologicUnitCodeDataType">
+		<xsd:annotation>
+			<xsd:documentation>Code representing the USGS Hydrologic Unit Code (HUC) at the most detailed level that the assignment can be made (6-digit being the lowest level of resolution allowed). Leading 0's should be included.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="IndividualTitleText" type="WC:IndividualTitleTextDataType">
+		<xsd:annotation>
+			<xsd:documentation>Title of the contact person</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="IrrigationMethodName" type="WC:IrrigationMethodNameDataType">
+		<xsd:annotation>
+			<xsd:documentation>Name of the irrigation technology (e.g., sprinkler, flood, microirrigation, etc.)</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="LastName" type="WC:LastNameDataType">
+		<xsd:annotation>
+			<xsd:documentation>Last name of a person</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="LatitudeNumber" type="WC:LatitudeNumberDataType">
+		<xsd:annotation>
+			<xsd:documentation>Latitude of the water right location in decimal degrees</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="LegalStatusCode" type="WC:LegalStatusCodeDataType">
+		<xsd:annotation>
+			<xsd:documentation>The legal status of the water right (i.e. is it a proven right, perfected, or being adjudicated, etc.)</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="LongitudeNumber" type="WC:LongitudeNumberDataType">
+		<xsd:annotation>
+			<xsd:documentation>Longitude of the water right location in decimal degrees</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="MailingAddressCityName" type="WC:MailingAddressCityNameDataType">
+		<xsd:annotation>
+			<xsd:documentation>City or Locality Name</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="MailingAddressCountryCode" type="WC:MailingAddressCountryCodeDataType">
+		<xsd:annotation>
+			<xsd:documentation>Country Name</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="MailingAddressStateUSPSCode" type="WC:MailingAddressStateUSPSCodeDataType">
+		<xsd:annotation>
+			<xsd:documentation>State USPS Code (i.e. KS)</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="MailingAddressText" type="WC:MailingAddressTextDataType">
+		<xsd:annotation>
+			<xsd:documentation>Mailing Address</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="MailingAddressZIPCode" type="WC:MailingAddressZIPCodeDataType">
+		<xsd:annotation>
+			<xsd:documentation>ZIP code</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="MethodContext" type="WC:MethodContextDataType">
+		<xsd:annotation>
+			<xsd:documentation>The owner of the method. The organization's ORG_ID can be supplied here.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="MethodName" type="WC:MethodNameDataType">
+		<xsd:annotation>
+			<xsd:documentation>The name of the method used.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="MethodTypeCode" type="WC:MethodTypeCodeDataType">
+		<xsd:annotation>
+			<xsd:documentation>Indicator of how the actual amount was determined (i.e. calculated, measured, estimated, or reported).</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="MetricName" type="WC:MetricNameDataType">
+		<xsd:annotation>
+			<xsd:documentation>Name of the metric</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="MetricScaleNumber" type="WC:MetricScaleNumberDataType">
+		<xsd:annotation>
+			<xsd:documentation>Highest allowed value for the metric (i.e. '10' on a scale of 1-10)</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="MetricValue" type="WC:MetricValueDataType">
+		<xsd:annotation>
+			<xsd:documentation>Value of the metric for this reporting unit. Higher numbers should indicate more availability.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="MiddleInitial" type="WC:MiddleInitialDataType">
+		<xsd:annotation>
+			<xsd:documentation>Middle Initial of a person</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="NHDMeasureNumber" type="WC:NHDMeasureNumberDataType">
+		<xsd:annotation>
+			<xsd:documentation>If the location is indexed to a NHD product, this provides the Measure number that provides the event's location on a reach.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="NHDNetworkStatus" type="WC:NHDNetworkStatusDataType">
+		<xsd:annotation>
+			<xsd:documentation>Whether or not the point location is indexed to the USGS NHD network</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="NHDProduct" type="WC:NHDProductDataType">
+		<xsd:annotation>
+			<xsd:documentation>NHD Product that is used for the indexing. Shouldbe NHDPlus V1, NHDPlus V2, NHD Med Res, or NHD High Res.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="NHDReachCode" type="WC:NHDReachCodeDataType">
+		<xsd:annotation>
+			<xsd:documentation>If the location is indexed to a NHD product, this provides the Reach Code Identifier</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="NHDUpdateDate" type="WC:NHDUpdateDateDataType">
+		<xsd:annotation>
+			<xsd:documentation>If the location is indexed to a NHD product, this contains the date of that indexing.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="OrganizationIdentifier" type="WC:OrganizationIdentifierDataType">
+		<xsd:annotation>
+			<xsd:documentation>A unique identifier assigned to the organization.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="OrganizationName" type="WC:OrganizationNameDataType">
+		<xsd:annotation>
+			<xsd:documentation>Name corresponding to unique organization ID (i.e. Utah Division of Water Resources)</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="OrganizationWebsiteText" type="WC:OrganizationWebsiteTextDataType">
+		<xsd:annotation>
+			<xsd:documentation>A hyperlink back to the organization's website.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="OversightAgencyName" type="WC:OversightAgencyNameDataType">
+		<xsd:annotation>
+			<xsd:documentation>Name of the special management district or oversight committee/basin group.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="PhoneExtensionText" type="WC:PhoneExtensionTextDataType">
+		<xsd:annotation>
+			<xsd:documentation>Telephone number extension</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="PopulationServedNumber" type="WC:PopulationServedNumberDataType">
+		<xsd:annotation>
+			<xsd:documentation>For Municipal uses, the population served within this reporting unit.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="PowerCapacityNumber" type="WC:PowerCapacityNumberDataType">
+		<xsd:annotation>
+			<xsd:documentation>The amount of power capacity in megawatt-hours.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="PowerGeneratedNumber" type="WC:PowerGeneratedNumberDataType">
+		<xsd:annotation>
+			<xsd:documentation>For thermoelectric energy uses, the amount of thermoelectric power generated (in megawatt/hours) during the reporting period.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="PriorityDate" type="WC:PriorityDateDataType">
+		<xsd:annotation>
+			<xsd:documentation>The priority date for the water right.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="PurviewDescription" type="WC:PurviewDescriptionDataType">
+		<xsd:annotation>
+			<xsd:documentation>A description of the purview of the agency (e.g., water rights, water planning, basin planning, water quality, consumptive use estimates, etc.)</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="RegulatoryDescriptionText" type="WC:RegulatoryDescriptionTextDataType">
+		<xsd:annotation>
+			<xsd:documentation>Description of the regulatory restriction.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="RegulatoryStatusText" type="WC:RegulatoryStatusTextDataType">
+		<xsd:annotation>
+			<xsd:documentation>Descrption of the regulatory status in the reporting unit (i.e. open, closed, partial, etc.)</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="RegulatoryTypeName" type="WC:RegulatoryTypeNameDataType">
+		<xsd:annotation>
+			<xsd:documentation>Name of the type of restriction on surface water, groundwater, or re-use</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="ReportIdentifier" type="WC:ReportIdentifierDataType">
+		<xsd:annotation>
+			<xsd:documentation>A unique identifier assigned to the report by the reporting organization, usually a numeric corresponding to the year for the encapsulated data.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="ReportingDate" type="WC:ReportingDateDataType">
+		<xsd:annotation>
+			<xsd:documentation>Date the report was generated and added to the database.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="ReportingUnitIdentifier" type="WC:ReportingUnitIdentifierDataType">
+		<xsd:annotation>
+			<xsd:documentation>A unique identifier assigned to the reporting unit by the reporting organization.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="ReportingUnitName" type="WC:ReportingUnitNameDataType">
+		<xsd:annotation>
+			<xsd:documentation>Name of the reporting unit</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="ReportingUnitTypeName" type="WC:ReportingUnitTypeNameDataType">
+		<xsd:annotation>
+			<xsd:documentation>The type of unit being represented (i.e.  County, HUC-8, Irrigation District, User-defined boundary,  Etc.)</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="ReportingYear" type="WC:ReportingYearDataType">
+		<xsd:annotation>
+			<xsd:documentation>Reporting year (calendar or water year) that encapuslates the data in the report, can be the same as ReportIdentifier.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="ReportLink" type="WC:ReportLinkDataType">
+		<xsd:annotation>
+			<xsd:documentation>Link to the PDF or web page for the narrative report that contains information about the provided report.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="ReportName" type="WC:ReportNameDataType">
+		<xsd:annotation>
+			<xsd:documentation>Name of the report, if state wishes to provide a summary of the report.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="ReturnFlowIdentifier" type="WC:ReturnFlowIdentifierDataType">
+		<xsd:annotation>
+			<xsd:documentation>Unique identifier for the return flow.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="ReturnFlowName" type="WC:ReturnFlowNameDataType">
+		<xsd:annotation>
+			<xsd:documentation>Name for the return flow.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="ReverseScaleIndicator" type="WC:ReverseScaleIndicatorDataType">
+		<xsd:annotation>
+			<xsd:documentation>This should be marked with a 'Y' if the scale is reversed (i.e. higher numbers indicate less avaialbility)</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="SourceName" type="WC:SourceNameDataType">
+		<xsd:annotation>
+			<xsd:documentation>Name of the Aquifer for groundwater sources or river basin for surface water sources.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="SourceTypeName" type="WC:SourceTypeNameDataType">
+		<xsd:annotation>
+			<xsd:documentation>Water Source: Groundwater, Surface Water, Water Reuse, Total</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="StateCode" type="WC:StateCodeDataType">
+		<xsd:annotation>
+			<xsd:documentation>Code representing the two-digit abbreviation for the state.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="SupplementalAddressText" type="WC:SupplementalAddressTextDataType">
+		<xsd:annotation>
+			<xsd:documentation>Additional Address Information</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="TelephoneNumberText" type="WC:TelephoneNumberTextDataType">
+		<xsd:annotation>
+			<xsd:documentation>Telephone Number data</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="TimeFrameEndName" type="WC:TimeFrameEndNameDataType">
+		<xsd:annotation>
+			<xsd:documentation>Ending date for the  availability estimate, allocation, diversion, or use. Report as MM/DD.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="TimeFrameStartName" type="WC:TimeFrameStartNameDataType">
+		<xsd:annotation>
+			<xsd:documentation>Starting date for the availability estimate, allocation, diversion, or use. Report as MM/DD.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="TotalPopulationServedNumber" type="WC:TotalPopulationServedNumberDataType">
+		<xsd:annotation>
+			<xsd:documentation>Population served by the community water supply</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="UserIdentifier" type="WC:UserIdentifierDataType">
+		<xsd:annotation>
+			<xsd:documentation>A unique identifier for the water user</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="UserName" type="WC:UserNameDataType">
+		<xsd:annotation>
+			<xsd:documentation>The name of the water user</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="WaDEURLAddress" type="WC:WaDEURLAddressDataType">
+		<xsd:annotation>
+			<xsd:documentation>The base (root) URL that the state agency will use to host the WaDE web services, including trailing forward slash</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="WaterSupplyTypeName" type="WC:WaterSupplyTypeNameDataType">
+		<xsd:annotation>
+			<xsd:documentation>Name of the water supply type (i.e. flow, storage, etc.)</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="WaterUseContext" type="WC:WaterUseContextDataType">
+		<xsd:annotation>
+			<xsd:documentation>Owner for the use type (i.e. state abbreviation)</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="WaterUseTypeName" type="WC:WaterUseTypeNameDataType">
+		<xsd:annotation>
+			<xsd:documentation>Name of the beneficial use.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="WFSAddressLink" type="WC:WFSAddressLinkDataType">
+		<xsd:annotation>
+			<xsd:documentation>The web feature service URL address.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="WFSDataCategory" type="WC:WFSDataCategoryDataType">
+		<xsd:annotation>
+			<xsd:documentation>Describes whether the WFS is of aggregated data or site-specific</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="WFSFeatureIdentifier" type="WC:WFSFeatureIdentifierDataType">
+		<xsd:annotation>
+			<xsd:documentation>The feature ID reference number</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="WFSFeatureIDFieldText" type="WC:WFSFeatureIDFieldTextDataType">
+		<xsd:annotation>
+			<xsd:documentation>The column or field that contains a unique identifier for the features in the web feature service.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="WFSTypeName" type="WC:WFSTypeNameDataType">
+		<xsd:annotation>
+			<xsd:documentation>A reference to what type of summary or detailed data are represented by the web feature service.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="YearTypeStartDate" type="WC:YearTypeStartDateDataType">
+		<xsd:annotation>
+			<xsd:documentation>If the organization uses a different start date for their annual summary of data besides a calendar year, enter the year's start date here. For example, a water year would be 10/01, an irrigation year would be 11/01.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:simpleType name="AcresIrrigatedNumberDataType">
+		<xsd:restriction base="xsd:decimal">
+			<xsd:fractionDigits value="3"/>
+			<xsd:totalDigits value="18"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="ActualAmountNumberDataType">
+		<xsd:restriction base="xsd:decimal">
+			<xsd:fractionDigits value="3"/>
+			<xsd:totalDigits value="18"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="ActualAmountUnitsCodeDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="10"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="AggregationIntervalDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="5"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="AggregationIntervalUnitDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="35"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="AggregationStatisticTextDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="10"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="AllocationIdentifierDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="60"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="AllocationOwnerNameDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="100"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="AmountNumberDataType">
+		<xsd:restriction base="xsd:decimal">
+			<xsd:fractionDigits value="3"/>
+			<xsd:totalDigits value="18"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="AmountUnitsCodeDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="10"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="ApplicationDateDataType">
+		<xsd:restriction base="xsd:date">
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="AvailabilityTypeNameDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="50"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="BeneficialUseContextDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="10"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="BeneficialUseTypeNameDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="35"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="CentroidLatitudeNumberDataType">
+		<xsd:restriction base="xsd:decimal">
+			<xsd:fractionDigits value="8"/>
+			<xsd:totalDigits value="18"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="CentroidLongitudeNumberDataType">
+		<xsd:restriction base="xsd:decimal">
+			<xsd:fractionDigits value="8"/>
+			<xsd:totalDigits value="18"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="CommunityWaterUseNameDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="60"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="ConsumptiveIndicatorDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="10"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="CountyFipsCodeDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="5"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="CropTypeNameDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="60"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="DataConfidenceValueDataType">
+		<xsd:restriction base="xsd:decimal">
+			<xsd:fractionDigits value="3"/>
+			<xsd:totalDigits value="18"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="DataCoverageValueDataType">
+		<xsd:restriction base="xsd:decimal">
+			<xsd:fractionDigits value="3"/>
+			<xsd:totalDigits value="18"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="DataQualityValueDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="50"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="DiversionIdentifierDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="35"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="DiversionNameDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="255"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="EmailAddressTextDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="240"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="EPSGCodeDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="10"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="FaxNumberTextDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="15"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="FirstNameDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="15"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="FreshSalineIndicatorDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="10"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="GeneratorTypeNameDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="60"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="HydrologicUnitCodeDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="12"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="IndividualTitleTextDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="45"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="IrrigationMethodNameDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="30"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="LastNameDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="15"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="LatitudeNumberDataType">
+		<xsd:restriction base="xsd:decimal">
+			<xsd:fractionDigits value="8"/>
+			<xsd:totalDigits value="18"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="LegalStatusCodeDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="25"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="LongitudeNumberDataType">
+		<xsd:restriction base="xsd:decimal">
+			<xsd:fractionDigits value="8"/>
+			<xsd:totalDigits value="18"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="MailingAddressCityNameDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="25"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="MailingAddressCountryCodeDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="2"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="MailingAddressStateUSPSCodeDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="2"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="MailingAddressTextDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="60"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="MailingAddressZIPCodeDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="14"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="MethodContextDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="10"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="MethodNameDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="35"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="MethodTypeCodeDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="1"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="MetricNameDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="35"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="MetricScaleNumberDataType">
+		<xsd:restriction base="xsd:decimal">
+			<xsd:fractionDigits value="3"/>
+			<xsd:totalDigits value="18"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="MetricValueDataType">
+		<xsd:restriction base="xsd:decimal">
+			<xsd:fractionDigits value="3"/>
+			<xsd:totalDigits value="18"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="MiddleInitialDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="3"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="NHDMeasureNumberDataType">
+		<xsd:restriction base="xsd:decimal">
+			<xsd:fractionDigits value="8"/>
+			<xsd:totalDigits value="18"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="NHDNetworkStatusDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="5"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="NHDProductDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="30"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="NHDReachCodeDataType">
+		<xsd:restriction base="xsd:decimal">
+			<xsd:fractionDigits value="8"/>
+			<xsd:totalDigits value="18"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="NHDUpdateDateDataType">
+		<xsd:restriction base="xsd:date">
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="OrganizationIdentifierDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="10"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="OrganizationNameDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="300"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="OrganizationWebsiteTextDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="400"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="OversightAgencyNameDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="60"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="PhoneExtensionTextDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="6"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="PopulationServedNumberDataType">
+		<xsd:restriction base="xsd:decimal">
+			<xsd:fractionDigits value="3"/>
+			<xsd:totalDigits value="18"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="PowerCapacityNumberDataType">
+		<xsd:restriction base="xsd:decimal">
+			<xsd:fractionDigits value="3"/>
+			<xsd:totalDigits value="18"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="PowerGeneratedNumberDataType">
+		<xsd:restriction base="xsd:decimal">
+			<xsd:fractionDigits value="3"/>
+			<xsd:totalDigits value="18"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="PriorityDateDataType">
+		<xsd:restriction base="xsd:date">
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="PurviewDescriptionDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="300"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="RegulatoryDescriptionTextDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="255"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="RegulatoryStatusTextDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="35"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="RegulatoryTypeNameDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="50"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="ReportIdentifierDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="35"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="ReportingDateDataType">
+		<xsd:restriction base="xsd:date">
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="ReportingUnitIdentifierDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="35"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="ReportingUnitNameDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="300"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="ReportingUnitTypeNameDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="35"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="ReportingYearDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="4"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="ReportLinkDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="300"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="ReportNameDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="80"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="ReturnFlowIdentifierDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="35"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="ReturnFlowNameDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="80"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="ReverseScaleIndicatorDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="1"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="SourceNameDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="60"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="SourceTypeNameDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="10"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="StateCodeDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="2"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="SupplementalAddressTextDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="60"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="TelephoneNumberTextDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="15"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="TimeFrameEndNameDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="5"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="TimeFrameStartNameDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="5"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="TotalPopulationServedNumberDataType">
+		<xsd:restriction base="xsd:integer">
+			<xsd:totalDigits value="18"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="UserIdentifierDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="50"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="UserNameDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="100"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="WaDEURLAddressDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="400"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="WaterSupplyTypeNameDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="35"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="WaterUseContextDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="10"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="WaterUseTypeNameDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="35"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="WFSAddressLinkDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="200"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="WFSDataCategoryDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="80"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="WFSFeatureIdentifierDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="12"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="WFSFeatureIDFieldTextDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="35"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="WFSTypeNameDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="80"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="YearTypeStartDateDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="5"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+</xsd:schema>

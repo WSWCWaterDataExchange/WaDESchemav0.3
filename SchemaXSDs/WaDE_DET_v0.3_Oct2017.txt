@@ -1,0 +1,354 @@
+1.0	Organization	Organization responsible for the data reported.	Header	1:MANY	Y			WC_Organization_v0.3.xsd	ORGANIZATION		
+1.0.1	OrganizationIdentifier	A unique identifier assigned to the organization.  Identifiers are managed by the Central Catalog operator.	string	10	Y	Y		WC_Shared_v0.3.xsd	ORGANIZATION	ORGANIZATION_ID	
+1.0.2	OrganizationName	Name corresponding to unique organization ID (i.e. Utah Division of Water Resources)	string	300	Y	N		WC_Shared_v0.3.xsd	ORGANIZATION	ORGANIZATION_NAME	
+1.0.3	PurviewDescription	"A description of the purview of the agency (e.g., water rights, consumptive use estimates, etc.)"	string	300	N	N		WC_Shared_v0.3.xsd	ORGANIZATION	PURVIEW_DESC	
+1.0.4	WaDEURLAddress	"The base (root) URL that the state agency will use to host the WaDE web services, including trailing forward slash"	string	400	N	N		WC_Shared_v0.3.xsd	ORGANIZATION	WADE_URL	
+1.0.5	Contact	Organization Contact Information	Header	1:1	Y			WC_Contact_v0.3.xsd	ORGANIZATION		
+1.0.5.1	FirstName	First name of a person.	string	15	Y	N		WC_Shared_v0.3.xsd	ORGANIZATION	FIRST_NAME	
+1.0.5.2	MiddleInitial	Middle Initial of a person.	string	3	N	N		WC_Shared_v0.3.xsd	ORGANIZATION	MIDDLE_INITIAL	
+1.0.5.3	LastName	Last name of a person.	string	15	Y	N		WC_Shared_v0.3.xsd	ORGANIZATION	LAST_NAME	
+1.0.5.4	IndividualTitleText	Title of the contact person.	string	45	N	N		WC_Shared_v0.3.xsd	ORGANIZATION	TITLE	
+1.0.5.5	EmailAddressText	Email address data	string	240	N	N		WC_Shared_v0.3.xsd	ORGANIZATION	EMAIL	
+1.0.5.6	TelephoneNumberText	Telephone Number data	string	15	N	N		WC_Shared_v0.3.xsd	ORGANIZATION	PHONE	
+1.0.5.7	PhoneExtensionText	Telephone number extension	string	6	N	N		WC_Shared_v0.3.xsd	ORGANIZATION	PHONE_EXT	
+1.0.5.8	FaxNumberText	Fax Number	string	15	N	N		WC_Shared_v0.3.xsd	ORGANIZATION	FAX	
+1.0.5.9	MailingAddress	Mailing address information	Header	1:1	Y			WC_MailingAddress_v0.3.xsd	ORGANIZATION		
+1.0.5.9.1	MailingAddressText	Mailing Address 	string	60	Y	N		WC_Shared_v0.3.xsd	ORGANIZATION	ADDRESS	
+1.0.5.9.2	SupplementalAddressText	Additional Address Information	string	60	N	N		WC_Shared_v0.3.xsd	ORGANIZATION	ADDRESS_EXT	
+1.0.5.9.3	MailingAddressCityName	City or Locality Name	string	25	Y	N		WC_Shared_v0.3.xsd	ORGANIZATION	CITY	
+1.0.5.9.4	MailingAddressStateUSPSCode	State USPS Code (i.e. KS)	string	2	Y	Y		WC_Shared_v0.3.xsd	ORGANIZATION	STATE	
+1.0.5.9.5	MailingAddressCountryCode	Country Name	string	2	N	Y		WC_Shared_v0.3.xsd	ORGANIZATION	COUNTRY	
+1.0.5.9.6	MailingAddressZIPCode	Zip Code	string	14	Y	N		WC_Shared_v0.3.xsd	ORGANIZATION	ZIPCODE	
+1.0.6	Report	Header for the water summary or water detail report.	Header	1:MANY	Y			WC_Report_v0.3.xsd	REPORT		
+1.0.6.1	ReportIdentifier	"A unique identifier assigned to the report by the reporting organization, usually a numeric corresponding to the year for the encapsulated data."	string	35	Y	N		WC_Shared_v0.3.xsd	REPORT	REPORT_ID	
+1.0.6.2	ReportingDate	Date the report was generated and added to the database.	Date		Y	N		WC_Shared_v0.3.xsd	REPORT	REPORT_DATE	
+1.0.6.3	ReportingYear	"Reporting year (calendar year) that encapuslates the data in the report, can be the same as ReportIdentifier."	string	4	Y	N		WC_Shared_v0.3.xsd	REPORT	REPORT_YEAR	
+1.0.6.4	ReportName	"Name of the report, if state wishes to provide a summary of the report."	string	80	N	N		WC_Shared_v0.3.xsd	REPORT	REPORT_NAME	
+1.0.6.5	ReportLink	Link to the PDF or web page for the narrative report that contains information about the provided report.	string	300	N	N		WC_Shared_v0.3.xsd	REPORT	REPORT_LINK	
+1.0.6.6	YearType	"Report year type: Calendar Year, Water Year, etc.  If not provided, then Calendar Year will be assumed."	string	25	N	Y		WC_Shared_v0.3.xsd	REPORT	YEAR_TYPE	
+1.0.6.7	GeospatialReference	Header for the Geospatial Information related to the report.	Header	1:MANY	N			WC_GeospatialReference_v0.3.xsd	GEOSPATIAL_REF		
+1.0.6.7.1	WFSType	Header for the Web Feature Service Type	Header	1:MANY	Conditional	N		WC_WFSType_v0.3.xsd	GEOSPATIAL_REF		
+1.0.6.7.1.1	WFSDataCategory	Describes whether the WFS is of the Summary data category or Detailed.	string	80	Y	Y	"Required if WFSTypeName is reported (Must be ""SUMMARY"" or ""DETAIL"")"	WC_Shared_v0.3.xsd	GEOSPATIAL_REF	WFS_DATACATEGORY	
+1.0.6.7.1.2	WFSTypeName	A reference to what type of summary or detailed data are represented by the web feature service.	string	80	Y	Y	"Required if WFSTypeName is reported (Must be ""AVAILABILITY"", ""WATER SUPPLY"", ""USE"", ""DIVERSION"", ""RETURN FLOW"", OR ""REGULATORY"""	WC_Shared_v0.3.xsd	GEOSPATIAL_REF	WFS_TYPE	
+1.0.6.7.1.3	WFSAddressLink	The web feature service URL address.	string	200	Y	N	Required if WFSTypeName is reported	WC_Shared_v0.3.xsd	GEOSPATIAL_REF	WFS_ADDRESS	
+1.0.6.7.1.4	WFSFeatureIDFieldText	The column or field that contains a unique identifier for the features in the web feature service.	string	35	Y	N	Required if WFSTypeName is reported	WC_Shared_v0.3.xsd	GEOSPATIAL_REF	WFS_FEATURE_ID_FIELD	
+1.0.6.8	ReportingUnit	"The Geo-spatial unit that is the index for data discovery (e.g., HUC-8, County, or Custom Basin Delineation)"	Header	1:MANY	Y			WC_ReportingUnit_v0.3.xsd	REPORTING_UNIT		
+1.0.6.8.1	ReportingUnitIdentifier	A unique identifier assigned to the reporting unit by the reporting organization.	string	35	Y	N		WC_Shared_v0.3.xsd	REPORTING_UNIT	REPORT_UNIT_ID	
+1.0.6.8.2	ReportingUnitName	Name of the reporting unit	string	300	Y	N		WC_Shared_v0.3.xsd	REPORTING_UNIT	REPORT_UNIT_NAME	
+1.0.6.8.3	ReportingUnitTypeName	"The type of unit being represented (i.e.  County, HUC-8, Irrigation District, User-defined boundary,  Etc.)"	string	35	Y	Y	"Preferred to be ""COUNTY"", ""HUC"", or ""CUSTOM"""	WC_Shared_v0.3.xsd	REPORTING_UNIT	REPORT_UNIT_TYPE	
+1.0.6.8.4	Location	Location information concerning the Reporting Unit.	Header	1:1	Y			WC_Location_v0.3.xsd	REPORTING_UNIT		
+1.0.6.8.4.1	StateCode	Code representing the two-digit abbreviation for the state.	string	2	Y	Y	See the LU_STATE table in the WaDE database for this value	WC_Shared_v0.3.xsd	REPORTING_UNIT	STATE	
+1.0.6.8.4.2	CountyFipsCode	County FIPS code (including the state FIPS code) representing the county.	string	5	Conditional	Y	"Either County FIPS Code, Hydrologic Unit Code identifier, or custom Reporting Unit may be provided. If a state has more than one way of indexing their data, they need additional lines for each reporting unit type so that names, etc. can be accomodated."	WC_Shared_v0.3.xsd	REPORTING_UNIT	COUNTY_FIPS	
+1.0.6.8.4.3	HydrologicUnitCode	Code representing the USGS Hydrologic Unit Code (HUC) at the most detailed level that the assignment can be made. Leading 0's should be included.	string	12	Conditional	Y	"Either CountyFipsCode, HydrologicUnitCode, GeographicLocation, or all three must be provided."	WC_Shared_v0.3.xsd	REPORTING_UNIT	HUC	
+1.0.6.8.5	AvailabilitySummary	Summary of water availability within the reporting unit.	Header	0:MANY	N	N		WC_AvailabilitySummary_v0.3.xsd	SUMMARY_AVAILABILILITY		
+1.0.6.8.5.1	WFSReference	Web Feature Service feature reference for the availability estimate.	Header	1:1	N	N		WC_WFSReference_v0.3.xsd	SUMMARY_AVAILABILILITY		
+1.0.6.8.5.1.1	WFSFeatureIdentifier	The feature ID reference number	string	12	Y	N	Required if there is a WFS Reference	WC_Shared_v0.3.xsd	SUMMARY_AVAILABILITY	WFS_FEATURE_REF	
+1.0.6.8.5.2	AvailabilityTypeName	"The type of water available (e.g., snowpack, precipitation, basin inflows, etc.)"	string	50	Y	N		WC_Shared_v0.3.xsd	SUMMARY_AVAILABILILITY	AVAILABILITY_TYPE	
+1.0.6.8.5.3	FreshSalineIndicator	"Indicates whether the water availbility is from fresh water, saline, or mixed water quality sources."	string	10	Y	N		WC_Shared_v0.3.xsd	SUMMARY_AVAILABILILITY	FRESH_SALINE_IND	
+1.0.6.8.5.4	SourceTypeName	"Value for the Water Availability Source Type (e.g., surface water, groundwater, reuse, etc.)"	string	10	Y	N		WC_Shared_v0.3.xsd	SUMMARY_AVAILABILILITY	SOURCE_TYPE	
+1.0.6.8.5.5	AvailabilityEstimate	Estimate of the water availability for the given time frame as either a volume amount or a relative metric.	Header	1:MANY	Y			WC_AvailabilityEstimate_v0.3.xsd			
+1.0.6.8.5.5.1	AvailabilityAmount	Volume of water available in this reporting unit.	Header	1:MANY	Conditional			WC_AvailabilityAmount_v0.3.xsd	S_AVAILABILITY_AMOUNT		
+1.0.6.8.5.5.1.1	AmountNumber	"Value of amount of water reported, measured, calculated, or estimated."	decimal	"18,3"	Y	N	Required if AvailabilityAmount is reported	WC_Shared_v0.3.xsd	S_AVAILABILITY_AMOUNT	AMOUNT	
+1.0.6.8.5.5.1.2	Method	"Method used to determine the metric, calculation or estimate."	Header	1:1	Y		Required if AvailabilityAmount is reported	WC_Method_v0.3.xsd	S_AVAILABILITY_AMOUNT	METHOD_ID	
+1.0.6.8.5.5.1.2.1	MethodContext	The owner of the method. The organization's ORG_ID can be supplied here.	string	10	Y	N	Required if Method is reported	WC_Shared_v0.3.xsd	LU_METHODS	CONTEXT	
+1.0.6.8.5.5.1.2.2	MethodName	The name of the method used.	string	35	Y	N	Required if Method is reported	WC_Shared_v0.3.xsd	LU_METHODS	VALUE	
+1.0.6.8.5.5.1.2.3	DataCoverageValue	"An indicator of data coverage (i.e., spatial coverage or completeness of the data)"	decimal	"18,3"	N	Y	Should be reported as a percentage	WC_Shared_v0.3.xsd	DATA_QUALITY	DATA_COVERAGE	
+1.0.6.8.5.5.1.2.4	DataQualityValue	"An indicator of data quality or grading (e.g. fair, good, best, unreported), or using the NEMS data quality grading system."	string	35	N	N	"Any grading indicator is acceptable, but please use NEMS quality indicators if possible."	WC_Shared_v0.3.xsd	DATA_QUALITY	DATA_QUALITY	
+1.0.6.8.5.5.1.2.5	DataConfidenceValue	"An indicator of data confidence, should be a confidence interval (e.g. 90%, 50%, etc.)"	decimal	"18,3"	N	Y	Should be reported as a percentage	WC_Shared_v0.3.xsd	DATA_QUALITY	DATA_CONFIDENCE	
+1.0.6.8.5.5.1.3	TimeFrame	"Time frame for the availability estimate, allocation, diversion, or use."	Header	1:1	Y			WC_TimeFrame_v0.3.xsd	S_AVAILABILITY_AMOUNT		
+1.0.6.8.5.5.1.3.1	TimeFrameStartName	"Starting date for the availability estimate, allocation, diversion, or use. Report as MM/DD."	string	5	Y	N		WC_Shared_v0.3.xsd	S_AVAILABILITY_AMOUNT	START_DATE	
+1.0.6.8.5.5.1.3.2	TimeFrameEndName	"Ending date for the  availability estimate, allocation, diversion, or use. Report as MM/DD."	string	5	Y	N		WC_Shared_v0.3.xsd	S_AVAILABILITY_AMOUNT	END_DATE	
+1.0.6.8.5.5.2	AvailabilityMetric	Metric measuring relative availability of water within this reporting unit.	Header	1:MANY	Conditional			WC_AvailabilityMetric_v0.3.xsd	S_AVAILABILITY_METRIC		
+1.0.6.8.5.5.2.1	MetricName	Name of the metric	string	35	Y	N	Required if AvailabilityMetric is reported	WC_Shared_v0.3.xsd	LU_METRICS	VALUE	
+1.0.6.8.5.5.2.2	MetricValue	Value of the metric for this reporting unit. Higher numbers should indicate more availability.	decimal	"18,3"	Y	N	Required if AvailabilityMetric is reported	WC_Shared_v0.3.xsd	S_AVAILABILITY_METRIC	METRIC_VALUE	
+1.0.6.8.5.5.2.3	MetricScaleNumber	Highest allowed value for the metric (i.e. '10' on a scale of 1-10)	decimal	"18,3"	Y	N	Required if AvailabilityMetric is reported	WC_Shared_v0.3.xsd	S_AVAILABILITY_METRIC	METRIC_SCALE	
+1.0.6.8.5.5.2.4	ReverseScaleIndicator	This should be marked with a 'Y' if the scale is reversed (i.e. higher numbers indicate less avaialbility)	string	1	N	Y	Only a value of 'Y' is allowed.  Otherwise do not report this data element.	WC_Shared_v0.3.xsd	S_AVAILABILITY_METRIC	REVERSE_SCALE_IND	
+1.0.6.8.5.5.2.5	Method	"Method used to determine the metric, calculation or estimate."	Header	1:1	Conditional			WC_Method_v0.3.xsd	S_AVAILABILITY_METRIC	METHOD_ID	
+1.0.6.8.5.5.2.5.1	MethodContext	The owner of the method. The organization's ORG_ID can be supplied here.	string	10	Y	Y	Required if Method is reported	WC_Shared_v0.3.xsd	LU_METHODS	CONTEXT	
+1.0.6.8.5.5.2.5.2	MethodName	The name of the method used.	string	35	Y	Y	Required if Method is reported	WC_Shared_v0.3.xsd	LU_METHODS	VALUE	
+1.0.6.8.5.5.2.5.3	DataCoverageValue	"An indicator of data coverage (i.e., spatial coverage or completeness of the data)"	decimal	"18,3"	N	Y	Should be reported as a percentage	WC_Shared_v0.3.xsd	LU_METHODS	DATA_COVERAGE	
+1.0.6.8.5.5.2.5.4	DataQualityValue	"An indicator of data quality or grading (e.g. fair, good, best, unreported), or using the NEMS data quality grading system."	string	35	N	N	"Any grading indicator is acceptable, but please use NEMS quality indicators if possible."	WC_Shared_v0.3.xsd	LU_METHODS	DATA_QUALITY	
+1.0.6.8.5.5.2.5.5	DataConfidenceValue	"An indicator of data confidence, should be a confidence interval (e.g. 90%, 50%, etc.)"	decimal	"18,3"	N	Y	Should be reported as a percentage	WC_Shared_v0.3.xsd	LU_METHODS	DATA_CONFIDENCE	
+1.0.6.8.5.5.2.6	TimeFrame	"Time frame for the availability estimate, allocation, diversion, or use."	Header	1:1	Y			WC_TimeFrame_v0.3.xsd	S_AVAILABILITY_METRIC		
+1.0.6.8.5.5.2.6.1	TimeFrameStartName	"Starting date for the availability estimate, allocation, diversion, or use. Report as MM/DD."	string	5	Y	N		WC_Shared_v0.3.xsd	S_AVAILABILITY_METRIC	START_DATE	
+1.0.6.8.5.5.2.6.2	TimeFrameEndName	"Ending date for the  availability estimate, allocation, diversion, or use. Report as MM/DD."	string	5	Y	N		WC_Shared_v0.3.xsd	S_AVAILABILITY_METRIC	END_DATE	
+1.0.6.8.6	AllocationSummary	Annual summary of water allocations within the reporting unit.	Header	0:MANY	N			WC_AllocationSummary_v0.3.xsd	SUMMARY_ALLOCATION		
+1.0.6.8.6.1	AllocationUse	Beneficial use for which the water is allocated.	Header	1:MANY	Y		At least one instance of Allocation Use is required if AllocationSummary is reported.	WC_AllocationUse_v0.3.xsd	SUMMARY_ALLOCATION		
+1.0.6.8.6.1.1	WFSReference	Web Feature Service feature reference for the allocation estimate.	Header	1:1	N	N		WC_WFSReference_v0.3.xsd	SUMMARY_ALLOCATION		
+1.0.6.8.6.1.1.1	WFSFeatureIdentifier	The feature ID reference number	string	12	Y	N	Required if there is a WFS Reference	WC_Shared_v0.3.xsd	SUMMARY_ALLOCATION	WFS_FEATURE_REF	
+1.0.6.8.6.1.2	AllocationUseContext	Owner for the use type (i.e. state abbreviation)	string	10	Y	Y	Required if AllocationUse is reported.	WC_Shared_v0.3.xsd	LU_BENEFICIAL_USE	CONTEXT	
+1.0.6.8.6.1.3	AllocationUseTypeName	Name of the beneficial use.	string	35	Y	Y	Required if AllocationUse is reported.	WC_Shared_v0.3.xsd	LU_BENEFICIAL_USE	VALUE	
+1.0.6.8.6.1.4	AllocationAmountSummary	Summary amount allocated to each allocation use type.	Header	1:MANY	Y		At least one instance of AllocationAmount is reqired if AllocationUse is reported.	WC_AllocationAmountSummary_v0.3.xsd	SUMMARY_ALLOCATION		
+1.0.6.8.6.1.4.1	AmountNumber	"Value reported, measured, calculated, or estimated."	decimal	"18,3"	Y	N	Required if AllocationAmount is reported.	WC_Shared_v0.3.xsd	SUMMARY_ALLOCATION	AMOUNT	
+1.0.6.8.6.1.4.2	FreshSalineIndicator	"Indicates whether the source is fresh water, saline water, or represents the total of both."	string	10	Y	Y	Required if AllocationAmount is reported.	WC_Shared_v0.3.xsd	SUMMARY_ALLOCATION	FRESH_SALINE_IND	
+1.0.6.8.6.1.4.3	SourceTypeName	"Water Source: Ground, Surface, Reuse, Total"	string	10	Y	Y	Required if AllocationAmount is reported.	WC_Shared_v0.3.xsd	SUMMARY_ALLOCATION	SOURCE_TYPE	
+1.0.6.8.6.1.4.4	PowerGeneratedNumber	"For thermoelectric energy uses, the amount of thermoelectric power generated (in megawatt/hours) during the reporting period."	decimal	"18,3"	N	N		WC_Shared_v0.3.xsd	SUMMARY_ALLOCATION	POWER_GENERATED	
+1.0.6.8.6.1.4.5	PopulationServedNumber	"For Municipal uses, the population served within this reporting unit."	decimal	"18,3"	N	N		WC_Shared_v0.3.xsd	SUMMARY_ALLOCATION	POPULATION_SERVED	
+1.0.6.8.6.1.4.6	IrrigationWaterSupply	Additional Metadata for irrigation water supply uses	Header	0:MANY	N			WC_IrrigationWaterSupply_v0.3.xsd	S_ALLOCATION_IRRIGATION		
+1.0.6.8.6.1.4.6.1	IrrigationMethodName	"Name of the method used to irrigate (i.e. sprinkler, flood, microirrigation, etc.)"	string	30	N			WC_Shared_v0.3.xsd	S_ALLOCATION_IRRIGATION	IRRIGATION_METHOD	
+1.0.6.8.6.1.4.6.2	AcresIrrigatedNumber	Number of acres irrigated using this method.	decimal	"18,3"	Y	N		WC_Shared_v0.3.xsd	S_ALLOCATION_IRRIGATION	ACRES_IRRIGATED	
+1.0.6.8.6.1.4.6.3	CropTypeName	Crop type being irrigated	string	60	N	Y		WC_Shared_v0.3.xsd	S_ALLOCATION_IRRIGATION	CROP_TYPE	
+1.0.6.8.7	WaterUseSummary	Summary of water use within the reporting unit by beneficial use category	Header	0:MANY	N			WC_WaterUseSummary_v0.3.xsd	SUMMARY_USE		
+1.0.6.8.7.1	WaterUse	Beneficial use for which the water is used.	Header	1:MANY	Y			WC_WaterUse_v0.3.xsd	SUMMARY_USE		
+1.0.6.8.7.1.1	WFSReference	Web Feature Service feature reference for the use estimate.	Header	1:1	N	N		WC_WFSReference_v0.3.xsd	SUMMARY_USE		
+1.0.6.8.7.1.1.1	WFSFeatureIdentifier	The feature ID reference number	string	12	Y	N	Required if there is a WFS Reference	WC_Shared_v0.3.xsd	SUMMARY_USE	WFS_FEATURE_REF	
+1.0.6.8.7.1.2	WaterUseContext	Owner for the use type (i.e. state abbreviation)	string	10	Y	Y	Required if WaterUse is reported.	WC_Shared_v0.3.xsd	LU_BENEFICIAL_USE	CONTEXT	
+1.0.6.8.7.1.3	WaterUseTypeName	Name of the beneficial use.	string	35	Y	Y	Required if WaterUse is reported.	WC_Shared_v0.3.xsd	LU_BENEFICIAL_USE	VALUE	
+1.0.6.8.7.1.4	WaterUseAmountSummary	Summary amount used for each use type.	Header	1:MANY	Y		At least one instance of WaterUseAmountSummary is reqired if WaterUse is reported.	WC_WaterUseAmountSummary_v0.3.xsd	SUMMARY_USE		
+1.0.6.8.7.1.4.1	FreshSalineIndicator	"Indicates whether the source is fresh water, saline water, or represents the total of both."	string	10	Y	Y	Required if UseAmount is reported.	WC_Shared_v0.3.xsd	SUMMARY_USE	FRESH_SALINE_IND	
+1.0.6.8.7.1.4.2	SourceTypeName	"Water Source: Ground, Surface, Reuse, Total"	string	10	Y	Y	Required if UseAmount is reported.	WC_Shared_v0.3.xsd	SUMMARY_USE	SOURCE_TYPE	
+1.0.6.8.7.1.4.3	PowerGeneratedNumber	"For thermoelectric energy uses, the amount of thermoelectric power generated (in megawatt/hours) during the reporting period."	decimal	"18,3"	N	N	Must report in megawatt-hours (MWH)	WC_Shared_v0.3.xsd	SUMMARY_USE	POWER_GENERATED	
+1.0.6.8.7.1.4.4	PopulationServedNumber	"For Municipal uses, the population served within this reporting unit."	decimal	"18,3"	N	N		WC_Shared_v0.3.xsd	SUMMARY_USE	POPULATION_SERVED	
+1.0.6.8.7.1.4.5	IrrigationWaterSupply	Additional metadata for irrigation water supply uses	Header	0:MANY	N			WC_IrrigationWaterSupply_v0.3.xsd	S_USE_IRRIGATION		
+1.0.6.8.7.1.4.5.1	IrrigationMethodName	"Name of the method used to irrigate (i.e. sprinkler, flood, microirrigation, etc.)"	string	30	N	Y	Required if IrrigationWaterSupply is reported.	WC_Shared_v0.3.xsd	S_USE_IRRIGATION	IRRIGATION_METHOD	
+1.0.6.8.7.1.4.5.2	AcresIrrigatedNumber	Number of acres irrigated using this method.	decimal	"18,3"	Y	N		WC_Shared_v0.3.xsd	S_USE_IRRIGATION	ACRES_IRRIGATED	
+1.0.6.8.7.1.4.5.3	CropTypeName	Crop type being irrigated	string	60	N	Y		WC_Shared_v0.3.xsd	S_USE_IRRIGATION	CROP_TYPE	
+1.0.6.8.7.1.4.6	WaterUseAmount	Amount of water used	Header	1:MANY	Y		At least one instance of WaterUseAmount is required if WaterUseAmountSummary is reported.	WC_WaterUseAmount_v0.3.xsd	S_USE_AMOUNT		
+1.0.6.8.7.1.4.6.1	AmountNumber	"Value reported, measured, calculated, or estimated."	decimal	"18,3"	Y	N	Required if WaterUseAmount is reported.	WC_Shared_v0.3.xsd	S_USE_AMOUNT	AMOUNT	
+1.0.6.8.7.1.4.6.2	ConsumptiveIndicator	An indication of whether the reported amount represents a consumptive amount or a withdrawn amount	string	10	Y	Y	Required if WaterUseAmount is reported.	WC_Shared_v0.3.xsd	S_USE_AMOUNT	CONSUMPTIVE_INDICATOR	
+1.0.6.8.7.1.4.6.3	Method	"Method used to determine the metric, calculation or estimate."	Header	1:1	Conditional			WC_Method_v0.3.xsd	S_USE_AMOUNT	METHOD_ID	
+1.0.6.8.7.1.4.6.3.1	MethodContext	The owner of the method.  Methods should be registered with the exchange which is managed by WSWC	string	10	Y	Y	Required if Method is reported	WC_Shared_v0.3.xsd	LU_METHODS	CONTEXT	
+1.0.6.8.7.1.4.6.3.2	MethodName	The name of the method used.	string	35	Y	Y	Required if Method is reported	WC_Shared_v0.3.xsd	LU_METHODS	VALUE	
+1.0.6.8.7.1.4.6.3.3	DataCoverageValue	"An indicator of data coverage (i.e., spatial coverage or completeness of the data)"	decimal	"18,3"	N	Y	Should be reported as a percentage	WC_Shared_v0.3.xsd	LU_METHODS	DATA_COVERAGE	
+1.0.6.8.7.1.4.6.3.4	DataQualityValue	"An indicator of data quality or grading (e.g. fair, good, best, unreported), or using the NEMS data quality grading system."	string	35	N	N	"Any grading indicator is acceptable, but please use NEMS quality indicators if possible."	WC_Shared_v0.3.xsd	LU_METHODS	DATA_QUALITY	
+1.0.6.8.7.1.4.6.3.5	DataConfidenceValue	"An indicator of data confidence, should be a confidence interval (e.g. 90%, 50%, etc.)"	decimal	"18,3"	N	Y	Should be reported as a percentage	WC_Shared_v0.3.xsd	LU_METHODS	DATA_CONFIDENCE	
+1.0.6.8.7.1.4.6.4	TimeFrame	"Time frame for the availability estimate, allocation, diversion, or use."	Header	1:1	Y			WC_TimeFrame_v0.3.xsd	S_USE_AMOUNT		
+1.0.6.8.7.1.4.6.4.1	TimeFrameStartName	"Starting date for the availability estimate, allocation, diversion, or use. Report as MM/DD."	string	5	Y	N		WC_Shared_v0.3.xsd	S_USE_AMOUNT	START_DATE	
+1.0.6.8.7.1.4.6.4.2	TimeFrameEndName	"Ending date for the  availability estimate, allocation, diversion, or use. Report as MM/DD."	string	5	Y	N		WC_Shared_v0.3.xsd	S_USE_AMOUNT	END_DATE	
+1.0.6.8.8	DerivedWaterSupplySummary	Summary of derived water supply within the reporting unit for the reporting year.	Header	0:MANY	N			WC_DerivedWaterSupply_v0.3.xsd	SUMMARY_WATER_SUPPLY		
+1.0.6.8.8.1	DerivedWaterSupplyType	Water Supply Type	Header	1:MANY	Y		Required if DerivedWaterSupplySummary is reported.	WC_DerivedWaterSupplyType_v0.3.xsd	SUMMARY_WATER_SUPPLY		
+1.0.6.8.8.1.1	WFSReference	Web Feature Service feature reference for the water supply estimate.	Header	1:1	N	N		WC_WFSReference_v0.3.xsd	SUMMARY_WATER_SUPPLY		
+1.0.6.8.8.1.1.1	WFSFeatureIdentifier	The feature ID reference number	string	12	Y	N	Required if there is a WFS Reference	WC_Shared_v0.3.xsd	SUMMARY_WATER_SUPPLY	WFS_FEATURE_REF	
+1.0.6.8.8.1.2	WaterSupplyTypeName	"Name of the water supply type (i.e. flow, storage, etc.)"	string	35	Y	Y	Required if DerivedWaterSupplyType is reported.	WC_Shared_v0.3.xsd	SUMMARY_WATER_SUPPLY	WATER_SUPPLY_TYPE	
+1.0.6.8.8.1.3	SupplyAmountSummary	Water supply summaries for the specified time frame	Header	1:MANY	Y		Required if DerivedWaterSupplyType is reported.	WC_SupplyAmountSummary_v0.3.xsd	S_WATER_SUPPLY_AMOUNT		
+1.0.6.8.8.1.3.1	AmountNumber	"Value reported, measured, calculated, or estimated."	decimal	"18,3"	Y	N	Required if SupplyAmountSummary is reported.	WC_Shared_v0.3.xsd	S_WATER_SUPPLY_AMOUNT	AMOUNT	
+1.0.6.8.8.1.3.2	Method	"Method used to determine the metric, calculation or estimate."	Header	1:1	Conditional			WC_Method_v0.3.xsd	S_WATER_SUPPLY_AMOUNT	METHOD_ID	
+1.0.6.8.8.1.3.2.1	MethodContext	The owner of the method.  Methods should be registered with the exchange which is managed by WSWC	string	10	Y	Y	Required if Method is reported	WC_Shared_v0.3.xsd	LU_METHODS	CONTEXT	
+1.0.6.8.8.1.3.2.2	MethodName	The name of the method used.	string	35	Y	Y	Required if Method is reported	WC_Shared_v0.3.xsd	LU_METHODS	VALUE	
+1.0.6.8.8.1.3.2.3	DataCoverageValue	"An indicator of data coverage (i.e., spatial coverage or completeness of the data)"	decimal	"18,3"	N	Y	Should be reported as a percentage	WC_Shared_v0.3.xsd	LU_METHODS	DATA_COVERAGE	
+1.0.6.8.8.1.3.2.4	DataQualityValue	"An indicator of data quality or grading (e.g. fair, good, best, unreported), or using the NEMS data quality grading system."	string	35	N	N	"Any grading indicator is acceptable, but please use NEMS quality indicators if possible."	WC_Shared_v0.3.xsd	LU_METHODS	DATA_QUALITY	
+1.0.6.8.8.1.3.2.5	DataConfidenceValue	"An indicator of data confidence, should be a confidence interval (e.g. 90%, 50%, etc.)"	decimal	"18,3"	N	Y	Should be reported as a percentage	WC_Shared_v0.3.xsd	LU_METHODS	DATA_CONFIDENCE	
+1.0.6.8.8.1.3.3	TimeFrame	"Time frame for the availability estimate, allocation, diversion, or use."	Header	1:1	Y			WC_TimeFrame_v0.3.xsd	S_WATER_SUPPLY_AMOUNT		
+1.0.6.8.8.1.3.3.1	TimeFrameStartName	"Starting date for the availability estimate, allocation, diversion, or use. Report as MM/DD."	string	5	Y	N		WC_Shared_v0.3.xsd	S_WATER_SUPPLY_AMOUNT	START_DATE	
+1.0.6.8.8.1.3.3.2	TimeFrameEndName	"Ending date for the  availability estimate, allocation, diversion, or use. Report as MM/DD."	string	5	Y	N		WC_Shared_v0.3.xsd	S_WATER_SUPPLY_AMOUNT	END_DATE	
+1.0.6.8.9	RegulatorySummary	Summary of regulatory status for the reporting unit.	Header	0:MANY	N			WC_RegulatorySummary_v0.3.xsd	SUMMARY_REGULATORY		
+1.0.6.8.9.1	RegulatoryType	A Description of the restriction on water use in the reporting unit.	Header	1:MANY	Y		Required if RegulatorySummary is reported.	WC_RegulatoryType_v0.3.xsd	SUMMARY_REGULATORY		
+1.0.6.8.9.1.1	WFSReference	Web Feature Service feature reference for the regulatory summary	Header	1:1	N	N		WC_WFSReference_v0.3.xsd	SUMMARY_REGULATORY		
+1.0.6.8.9.1.1.1	WFSFeatureIdentifier	The feature ID reference number	string	12	Y	N	Required if there is a WFS Reference	WC_Shared_v0.3.xsd	SUMMARY_REGULATORY	WFS_FEATURE_REF	
+1.0.6.8.9.1.2	RegulatoryTypeName	"Name of the type of restriction on surface water, groundwater, or re-use"	string	50	Y	N	Required if RegulatoryType is reported.	WC_Shared_v0.3.xsd	SUMMARY_REGULATORY	REGULATORY_TYPE	
+1.0.6.8.9.1.3	RegulatoryStatusText	"Descrption of the regulatory status in the reporting unit (i.e. open, closed, partial, etc.)"	string	35	Y	Y	Required if RegulatoryType is reported.	WC_Shared_v0.3.xsd	SUMMARY_REGULATORY	REGULATORY_STATUS	
+1.0.6.8.9.1.4	OversightAgencyName	Name of the special management district or oversight committee/basin group.	string	60	N	N		WC_Shared_v0.3.xsd	SUMMARY_REGULATORY	OVERSIGHT_AGENCY	
+1.0.6.8.9.1.5	RegulatoryDescriptionText	Description of the regulatory restriction.	string	255	N	N		WC_Shared_v0.3.xsd	SUMMARY_REGULATORY	REGULATORY_DESCRIPTION	
+1.0.6.9	ReportDetails	"Detailed, site specific information on water allocations, diversions, use, and return flows."	Header	0:1	N			WC_ReportDetails_v0.3.xsd			
+1.0.6.9.1	WaterAllocation	Allocations or water rights assigned to specific entities.	Header	0:MANY	N			WC_WaterAllocation_v0.3.xsd	DETAIL_ALLOCATION		
+1.0.6.9.1.1	AllocationIdentifier	Unique identifier for the allocation	string	60	N	N		WC_Shared_v0.3.xsd	DETAIL_ALLOCATION	ALLOCATION_ID	
+1.0.6.9.1.2	AllocationOwnerName	Name of the entity with the allocation	string	100	N	N		WC_Shared_v0.3.xsd	DETAIL_ALLOCATION	ALLOCATION_OWNER	
+1.0.6.9.1.3	ApplicationDate	The date on which the water right was applied for.	Date		Conditional	N	Either ApplicationDate or PriorityDate is required.	WC_Shared_v0.3.xsd	DETAIL_ALLOCATION	APPLICATION_DATE	
+1.0.6.9.1.4	PriorityDate	The priority date for the water right.	Date		Conditional	N	Either ApplicationDate or PriorityDate is required.	WC_Shared_v0.3.xsd	DETAIL_ALLOCATION	PRIORITY_DATE	
+1.0.6.9.1.5	EndDate	"For temporary water rights, the end date for the water right."	Date		N	N		WC_Shared_v0.3.xsd	DETAIL_ALLOCATION	END_DATE	
+1.0.6.9.1.6	LegalStatusCode	"The legal status of the water right (i.e. is it a proven right, perfected, or being adjudicated, etc.)"	string	25	N	Y		WC_Shared_v0.3.xsd	DETAIL_ALLOCATION	LEGAL_STATUS	
+1.0.6.9.1.7	DetailLocation	"The Location of the  detailed allocation, diversion, use, or return flow."	Header	1:MANY	Y			WC_DetailLocation_v0.3.xsd	D_ALLOCATION_LOCATION		
+1.0.6.9.1.7.1	StateCode	Code representing the two-digit abbreviation for the state.	string	2	Y	Y		WC_Shared_v0.3.xsd	D_ALLOCATION_LOCATION	STATE	
+1.0.6.9.1.7.2	ReportingUnitIdentifier	A unique identifier assigned to the reporting unit by the reporting organization.	string	35	Y	N		WC_Shared_v0.3.xsd	D_ALLOCATION_LOCATION	REPORTING_UNIT_ID	
+1.0.6.9.1.7.3	CountyFipsCode	County FIPS code (including the state FIPS code) representing the county.	string	5	N	Y		WC_Shared_v0.3.xsd	D_ALLOCATION_LOCATION	COUNTY_FIPS	
+1.0.6.9.1.7.4	HydrologicUnitCode	Code representing the USGS Hydrologic Unit (or HUC) at the most detailed level that the assignment can be made (6-digit being the lowest level of resolution allowed). Leading 0's should be included.	string	12	N	Y		WC_Shared_v0.3.xsd	D_ALLOCATION_LOCATION	HUC	
+1.0.6.9.1.7.5	LatitudeNumber	Latitude of the water right location in decimal degrees	decimal	"18,8"	N	N		WC_Shared_v0.3.xsd	D_ALLOCATION_LOCATION	LAT_DD	
+1.0.6.9.1.7.6	LongitudeNumber	Longitude of the water right location in decimal degrees	decimal	"18,8"	N	N		WC_Shared_v0.3.xsd	D_ALLOCATION_LOCATION	LONG_DD	
+1.0.6.9.1.7.7	EPSGCode	"Code for projection, with a preference for WGS_1984, EPSG of 4326"	decimal	10	N	N	Preference for EPSG of 4326 (GCS WGS 1984)	WC_Shared_v0.3.xsd	D_ALLOCATION_LOCATION	EPSG_ID	
+1.0.6.9.1.7.8	NHDNetworkStatus	Whether or not the water right location is indexed to the USGS NHD network	string	5	Y	Y	Y or N values	WC_Shared_v0.3.xsd	D_ALLOCATION_LOCATION	NHD_STATUS	
+1.0.6.9.1.7.9	NHDVersion	Version number of the NHD used for the indexing	string	5	N	N	Required if NHDNetworkStatus is Y	WC_Shared_v0.3.xsd	D_ALLOCATION_LOCATION	NHD_VERSION	
+1.0.6.9.1.7.10	NHDUpdateDate	"If the water right location is indexed to the USGS NHD, this provides the date it was indexed to the NHD."	Date		N	Y	Required if NHDNetworkStatus is Y	WC_Shared_v0.3.xsd	D_ALLOCATION_LOCATION	NHD_UPDATE_DATE	
+1.0.6.9.1.7.11	NHDReachCode	"If the water right location is indexed to the USGS NHD, this provides the Reach Code Identifier"	decimal	"18,8"	N	N	Required if NHDNetworkStatus is Y	WC_Shared_v0.3.xsd	D_ALLOCATION_LOCATION	NHD_REACH	
+1.0.6.9.1.7.12	NHDMeasureNumber	"If the water right location is indexed to the USGS NHD, this provides the Measure number that provides the event's location on a reach."	decimal	"18,8"	N	N	Required if NHDNetworkStatus is Y	WC_Shared_v0.3.xsd	D_ALLOCATION_LOCATION	NHD_MEASURE	
+1.0.6.9.1.7.13	WFSReference	Web Feature Service feature reference for the point of diversion	Header	1:1	N	N		WC_WFSReference_v0.3.xsd	D_ALLOCATION_LOCATION		
+1.0.6.9.1.7.13.1	WFSFeatureIdentifier	The feature ID reference number	string	12	Y	N	Required if there is a WFS Reference	WC_Shared_v0.3.xsd	D_ALLOCATION_LOCATION	WFS_FEATURE_REF	
+1.0.6.9.1.8	AllocationAmount	"Defines the ammount of water attributed to the entire allocation.  If an allocation has diversions associated with it, then report this information for each diversion."	Header	0:MANY	N			WC_AllocationAmount_v0.3.xsd	D_ALLOCATION_FLOW		
+1.0.6.9.1.8.1	WaterAllocated	The amount of water allocated for this allocation or diversion.	Header	1:1	Y			WC_WaterAllocated_v0.3.xsd	D_ALLOCATION_FLOW		
+1.0.6.9.1.8.1.1	BeneficialUse	Beneficial use for which the water is used.	Header	1:MANY	Y		At least one instance of Allocation Use is required if AllocationSummary is reported.	WC_BeneficialUseSummaryDetail_v0.3.xsd	D_ALLOCATION_USE	BENEFICIAL_USE_ID	
+1.0.6.9.1.8.1.1.1	BeneficialUseContext	Owner for the use type (i.e. state abbreviation)	string	10	Y	Y	Required if WaterUse is reported.	WC_Shared_v0.3.xsd	LU_BENEFICIAL_USE	CONTEXT	
+1.0.6.9.1.8.1.1.2	BeneficialUseTypeName	Name of the beneficial use.	string	35	Y	Y	Required if WaterUse is reported.	WC_Shared_v0.3.xsd	LU_BENEFICIAL_USE	VALUE	
+1.0.6.9.1.8.1.2	AllocatedVolume	The volume of water allocated for this allocation or diversion.	Header	0:1	Conditional		"Either AllocatedVolume, AllocatedRate, or both must be provided."	WC_AllocatedVolume_v0.3.xsd	D_ALLOCATION_FLOW		
+1.0.6.9.1.8.1.2.1	AmountNumber	"Value reported, measured, calculated, or estimated."	decimal	"18,3"	Y	N	Required if AvailabilityAmount is reported	WC_Shared_v0.3.xsd	D_ALLOCATION_FLOW	AMOUNT_VOLUME	
+1.0.6.9.1.8.1.2.2	AmountUnitsCode	Unit of measure	string	10	Y	Y	Required if AvailabilityAmount is reported	WC_Shared_v0.3.xsd	D_ALLOCATION_FLOW	UNIT_VOLUME	
+1.0.6.9.1.8.1.3	AllocatedRate	The rate at which water can be diverted for this allocation or diversion.	Header	0:1	Conditional		"Either AllocatedVolume, AllocatedRate, or both must be provided."	WC_AllocatedRate_v0.3.xsd	D_ALLOCATION_FLOW		
+1.0.6.9.1.8.1.3.1	AmountNumber	"Value reported, measured, calculated, or estimated."	decimal	"18,3"	Y	N	Required if AvailabilityAmount is reported	WC_Shared_v0.3.xsd	D_ALLOCATION_FLOW	AMOUNT_RATE	
+1.0.6.9.1.8.1.3.2	AmountUnitsCode	Unit of measure	string	10	Y	Y	Required if AvailabilityAmount is reported	WC_Shared_v0.3.xsd	D_ALLOCATION_FLOW	UNIT_RATE	
+1.0.6.9.1.8.1.4	SourceTypeName	"Water Source: Ground, Surface, Reuse, Total"	string	10	Y	Y		WC_Shared_v0.3.xsd	D_ALLOCATION_FLOW	SOURCE_TYPE	
+1.0.6.9.1.8.1.5	FreshSalineIndicator	"Indicates whether the source is fresh water, saline water, or represents the total of both."	string	10	Y	Y		WC_Shared_v0.3.xsd	D_ALLOCATION_FLOW	FRESH_SALINE_IND	
+1.0.6.9.1.8.1.6	TimeFrame	"Time frame for the availability estimate, allocation, diversion, or use."	Header	1:1	Y			WC_TimeFrame_v0.3.xsd	D_ALLOCATION_FLOW		
+1.0.6.9.1.8.1.6.1	TimeFrameStartName	"Starting date for the availability estimate, allocation, diversion, or use. Report as MM/DD."	string	5	Y	N		WC_Shared_v0.3.xsd	D_ALLOCATION_FLOW	ALLOCATION_START	
+1.0.6.9.1.8.1.6.2	TimeFrameEndName	"Ending date for the  availability estimate, allocation, diversion, or use. Report as MM/DD."	string	5	Y	N		WC_Shared_v0.3.xsd	D_ALLOCATION_FLOW	ALLOCATION_END	
+1.0.6.9.1.8.1.7	SourceName	Name of the Aquifer for groundwater sources or river basin for surface water sources.	string	60	N	N		WC_Shared_v0.3.xsd	D_ALLOCATION_FLOW	SOURCE_NAME	
+1.0.6.9.1.8.1.8	ActualAmount	The actual amount of water diverted at this diversion for the reporting period.	Header	0:MANY	Y			WC_ActualAmount_v0.3.xsd	D_ALLOCATION_ACTUAL		
+1.0.6.9.1.8.1.8.1	ActualVolume	The actual volume of water diverted at this diversion for the reporting period.	Header	0:1	Conditional		"Either ActualVolume or ActualRate must be reported, or both."	WC_ActualVolume_v0.3.xsd	D_ALLOCATION_ACTUAL		
+1.0.6.9.1.8.1.8.1.1	ActualAmountNumber	Amout of water diverted.	decimal	"18,3"	Y	N		WC_Shared_v0.3.xsd	D_ALLOCATION_ACTUAL	AMOUNT_VOLUME	
+1.0.6.9.1.8.1.8.1.2	ActualAmountUnitsCode	Unit of measure	string	10	Y	Y		WC_Shared_v0.3.xsd	D_ALLOCATION_ACTUAL	UNIT_VOLUME	
+1.0.6.9.1.8.1.8.1.3	ValueTypeCode	"Indicator on how the actual amount was determined (i.e. calculated, measured, estimated, or reported)."	string	1	Y	Y		WC_Shared_v0.3.xsd	D_ALLOCATION_ACTUAL	VALUE_TYPE_VOLUME	
+1.0.6.9.1.8.1.8.1.4	Method	"Method used to determine the metric, calculation or estimate."	Header	1:1	Conditional			WC_Method_v0.3.xsd	D_ALLOCATION_ACTUAL	METHOD_ID_VOLUME	
+1.0.6.9.1.8.1.8.1.4.1	MethodContext	The owner of the method.  Methods should be registered with the exchange which is managed by WSWC	string	10	Y	Y	Required if Method is reported	WC_Shared_v0.3.xsd	LU_METHODS	CONTEXT	
+1.0.6.9.1.8.1.8.1.4.2	MethodName	The name of the method used.	string	35	Y	Y	Required if Method is reported	WC_Shared_v0.3.xsd	LU_METHODS	VALUE	
+1.0.6.9.1.8.1.8.1.4.3	DataCoverageValue	"An indicator of data coverage (i.e., spatial coverage or completeness of the data)"	decimal	"18,3"	N	Y	Should be reported as a percentage	WC_Shared_v0.3.xsd	LU_METHODS	DATA_COVERAGE	
+1.0.6.9.1.8.1.8.1.4.4	DataQualityValue	"An indicator of data quality or grading (e.g. fair, good, best, unreported), or using the NEMS data quality grading system."	string	35	N	N	"Any grading indicator is acceptable, but please use NEMS quality indicators if possible."	WC_Shared_v0.3.xsd	LU_METHODS	DATA_QUALITY	
+1.0.6.9.1.8.1.8.1.4.5	DataConfidenceValue	"An indicator of data confidence, should be a confidence interval (e.g. 90%, 50%, etc.)"	decimal	"18,3"	N	Y	Should be reported as a percentage	WC_Shared_v0.3.xsd	LU_METHODS	DATA_CONFIDENCE	
+1.0.6.9.1.8.1.8.2	ActualRate	The actual rate of water diverted at this diversion for the reporting period.	Header	0:1	Conditional		"Either ActualVolume or ActualRate must be reported, or both."	WC_ActualRate_v0.3.xsd	D_ALLOCATION_ACTUAL		
+1.0.6.9.1.8.1.8.2.1	ActualAmountNumber	Amout of water diverted.	decimal	"18,3"	Y	N		WC_Shared_v0.3.xsd	D_ALLOCATION_ACTUAL	AMOUNT_RATE	
+1.0.6.9.1.8.1.8.2.2	ActualAmountUnitsCode	Unit of measure	string	10	Y	Y		WC_Shared_v0.3.xsd	D_ALLOCATION_ACTUAL	UNIT_RATE	
+1.0.6.9.1.8.1.8.2.3	ValueTypeCode	"Indicator on how the actual amount was determined (i.e. calculated, measured, estimated, or reported)."	string	1	Y	Y		WC_Shared_v0.3.xsd	D_ALLOCATION_ACTUAL	VALUE_TYPE_RATE	
+1.0.6.9.1.8.1.8.2.4	Method	"Method used to determine the metric, calculation or estimate."	Header	1:1	Conditional			WC_Method_v0.3.xsd	D_ALLOCATION_ACTUAL	METHOD_ID_RATE	
+1.0.6.9.1.8.1.8.2.4.1	MethodContext	The owner of the method.  Methods should be registered with the exchange which is managed by WSWC	string	10	Y	Y	Required if Method is reported	WC_Shared_v0.3.xsd	LU_METHODS	CONTEXT	
+1.0.6.9.1.8.1.8.2.4.2	MethodName	The name of the method used.	string	35	Y	Y	Required if Method is reported	WC_Shared_v0.3.xsd	LU_METHODS	VALUE	
+1.0.6.9.1.8.1.8.2.4.3	DataCoverageValue	"An indicator of data coverage (i.e., spatial coverage or completeness of the data)"	decimal	"18,3"	N	Y	Should be reported as a percentage	WC_Shared_v0.3.xsd	LU_METHODS	DATA_COVERAGE	
+1.0.6.9.1.8.1.8.2.4.4	DataQualityValue	"An indicator of data quality or grading (e.g. fair, good, best, unreported), or using the NEMS data quality grading system."	string	35	N	N	"Any grading indicator is acceptable, but please use NEMS quality indicators if possible."	WC_Shared_v0.3.xsd	LU_METHODS	DATA_QUALITY	
+1.0.6.9.1.8.1.8.2.4.5	DataConfidenceValue	"An indicator of data confidence, should be a confidence interval (e.g. 90%, 50%, etc.)"	decimal	"18,3"	N	Y	Should be reported as a percentage	WC_Shared_v0.3.xsd	LU_METHODS	DATA_CONFIDENCE	
+1.0.6.9.1.8.1.8.3	TimeFrame	"Time frame for the availability estimate, allocation, diversion, or use."	Header	1:1	Y			WC_TimeFrame_v0.3.xsd	D_ALLOCATION_ACTUAL		
+1.0.6.9.1.8.1.8.3.1	TimeFrameStartName	"Starting date for the availability estimate, allocation, diversion, or use. Report as MM/DD."	string	5	Y	N		WC_Shared_v0.3.xsd	D_ALLOCATION_ACTUAL	START_DATE	
+1.0.6.9.1.8.1.8.3.2	TimeFrameEndName	"Ending date for the  availability estimate, allocation, diversion, or use. Report as MM/DD."	string	5	Y	N		WC_Shared_v0.3.xsd	D_ALLOCATION_ACTUAL	END_DATE	
+1.0.6.9.1.9	Diversion	Description of the location for the diverted water.	Header	0:MANY	N			WC_Diversion_v0.3.xsd	DETAIL_DIVERSION		
+1.0.6.9.1.9.1	DiversionIdentifier	Unique identifier for the diversion within this allocation.	string	35	Y	N	Required if Diversion is reported	WC_Shared_v0.3.xsd	DETAIL_DIVERSION	DIVERSION_ID	
+1.0.6.9.1.9.2	DiversionName	Name for the diversion.	string	255	N	N		WC_Shared_v0.3.xsd	DETAIL_DIVERSION	DIVERSION_NAME	
+1.0.6.9.1.9.3	DetailLocation	"The Location of the detailed allocation, diversion, use, or return flow."	Header	1:1	Y			WC_DetailLocation_v0.3.xsd	DETAIL_DIVERSION		
+1.0.6.9.1.9.3.1	StateCode	Code representing the two-digit abbreviation for the state.	string	2	Y	Y		WC_Shared_v0.3.xsd	DETAIL_DIVERSION	STATE	
+1.0.6.9.1.9.3.2	ReportingUnitIdentifier	A unique identifier assigned to the reporting unit by the reporting organization.	string	35	Y	N		WC_Shared_v0.3.xsd	DETAIL_DIVERSION	REPORTING_UNIT_ID	
+1.0.6.9.1.9.3.3	CountyFipsCode	County FIPS code (including the state FIPS code) representing the county.	string	5	N	Y		WC_Shared_v0.3.xsd	DETAIL_DIVERSION	COUNTY_FIPS	
+1.0.6.9.1.9.3.4	HydrologicUnitCode	Code representing the USGS Hydrologic Unit (or HUC) at the most detailed level that the assignment can be made (6-digit being the lowest level of resolution allowed). Leading 0's should be included.	string	12	N	Y		WC_Shared_v0.3.xsd	DETAIL_DIVERSION	HUC	
+1.0.6.9.1.9.3.5	LatitudeNumber	"Latitude of the diversion, withdrawal, well location in decimal degrees"	decimal	"18,8"	N	N		WC_Shared_v0.3.xsd	DETAIL_DIVERSION	LAT_DD	
+1.0.6.9.1.9.3.6	LongitudeNumber	"Longitude of the diversion, withdrawal, well location location in decimal degrees"	decimal	"18,8"	N	N		WC_Shared_v0.3.xsd	DETAIL_DIVERSION	LONG_DD	
+1.0.6.9.1.9.3.7	EPSGCode	"Code for projection, with a preference for WGS_1984, EPSG of 4326"	decimal	10	N	N	Preference for EPSG of 4326 (GCS WGS 1984)	WC_Shared_v0.3.xsd	DETAIL_DIVERSION	EPSG_ID	
+1.0.6.9.1.9.3.8	NHDNetworkStatus	"Whether or not the diverersion, withdrawal, well location is indexed to the USGS NHD network"	string	5	Y	Y	Y or N values	WC_Shared_v0.3.xsd	DETAIL_DIVERSION	NHD_STATUS	
+1.0.6.9.1.9.3.9	NHDVersion	Version number of the NHD used for the indexing	string	5	N	N	Required if NHDNetworkStatus is Y	WC_Shared_v0.3.xsd	DETAIL_DIVERSION	NHD_VERSION	
+1.0.6.9.1.9.3.10	NHDUpdateDate	"If the diverersion, withdrawal, well location is indexed to the USGS NHD, this provides the date it was indexed to the NHD."	Date		N	Y	Required if NHDNetworkStatus is Y	WC_Shared_v0.3.xsd	DETAIL_DIVERSION	NHD_UPDATE_DATE	
+1.0.6.9.1.9.3.11	NHDReachCode	"If the diverersion, withdrawal, well location is indexed to the USGS NHD, this provides the Reach Code Identifier"	decimal	"18,8"	N	N	Required if NHDNetworkStatus is Y	WC_Shared_v0.3.xsd	DETAIL_DIVERSION	NHD_REACH	
+1.0.6.9.1.9.3.12	NHDMeasureNumber	"If the diverersion, withdrawal, well location is indexed to the USGS NHD, this provides the Measure number that provides the event's location on a reach."	decimal	"18,8"	N	N	Required if NHDNetworkStatus is Y	WC_Shared_v0.3.xsd	DETAIL_DIVERSION	NHD_MEASURE	
+1.0.6.9.1.9.3.13	WFSReference	Web Feature Service feature reference for the point of diversion	Header	1:1	N	N		WC_WFSReference_v0.3.xsd	DETAIL_DIVERSION		
+1.0.6.9.1.9.3.13.1	WFSFeatureIdentifier	The feature ID reference number	string	12	Y	N	Required if there is a WFS Reference	WC_Shared_v0.3.xsd	DETAIL_DIVERSION	WFS_FEATURE_REF	
+1.0.6.9.1.9.4	DiversionAmount	"Defines the amount of water attributed to the entire allocation.  If an allocation has diversions associated with it, then report this information for each diversion."	Header	1:MANY	Y			WC_DiversionAmount_v0.3.xsd	D_DIVERSION_FLOW		
+1.0.6.9.1.9.4.1	WaterAllocated	The amount of water allocated for this allocation or diversion.	Header	1:1	Y			WC_WaterAllocated_v0.3.xsd	D_DIVERSION_FLOW		
+1.0.6.9.1.9.4.1.1	BeneficialUse	Beneficial use for which the water is used.	Header	1:MANY	Y		At least one instance of Allocation Use is required if AllocationSummary is reported.	WC_BeneficialUseSummaryDetail_v0.3.xsd	D_DIVERSION_USE	BENEFICIAL_USE_ID	
+1.0.6.9.1.9.4.1.1.1	BeneficialUseContext	Owner for the use type (i.e. state abbreviation)	string	10	Y	Y	Required if WaterUse is reported.	WC_Shared_v0.3.xsd	LU_BENEFICIAL_USE	CONTEXT	
+1.0.6.9.1.9.4.1.1.2	BeneficialUseTypeName	Name of the beneficial use.	string	35	Y	Y	Required if WaterUse is reported.	WC_Shared_v0.3.xsd	LU_BENEFICIAL_USE	VALUE	
+1.0.6.9.1.9.4.1.2	AllocatedVolume	The volume of water allocated for this allocation or diversion.	Header	0:1	Conditional		"Either AllocatedVolume, AllocatedRate, or both must be provided."	WC_AllocatedVolume_v0.3.xsd	D_DIVERSION_FLOW		
+1.0.6.9.1.9.4.1.2.1	AmountNumber	"Value reported, measured, calculated, or estimated."	decimal	"18,3"	Y	N	Required if AvailabilityAmount is reported	WC_Shared_v0.3.xsd	D_DIVERSION_FLOW	AMOUNT_VOLUME	
+1.0.6.9.1.9.4.1.2.2	AmountUnitsCode	Unit of measure	string	10	Y	Y	Required if AvailabilityAmount is reported	WC_Shared_v0.3.xsd	D_DIVERSION_FLOW	UNIT_VOLUME	
+1.0.6.9.1.9.4.1.3	AllocatedRate	The rate at which water can be diverted for this allocation or diversion.	Header	0:1	Conditional		"Either AllocatedVolume, AllocatedRate, or both must be provided."	WC_AllocatedRate_v0.3.xsd	D_DIVERSION_FLOW		
+1.0.6.9.1.9.4.1.3.1	AmountNumber	"Value reported, measured, calculated, or estimated."	decimal	"18,3"	Y	N	Required if AvailabilityAmount is reported	WC_Shared_v0.3.xsd	D_DIVERSION_FLOW	AMOUNT_RATE	
+1.0.6.9.1.9.4.1.3.2	AmountUnitsCode	Unit of measure	string	10	Y	Y	Required if AvailabilityAmount is reported	WC_Shared_v0.3.xsd	D_DIVERSION_FLOW	UNIT_RATE	
+1.0.6.9.1.9.4.1.4	SourceTypeName	"Water Source: Ground, Surface, Reuse, Total"	string	10	Y	Y		WC_Shared_v0.3.xsd	D_DIVERSION_FLOW	SOURCE_TYPE	
+1.0.6.9.1.9.4.1.5	FreshSalineIndicator	"Indicates whether the source is fresh water, saline water, or represents the total of both."	string	10	Y	Y		WC_Shared_v0.3.xsd	D_DIVERSION_FLOW	FRESH_SALINE_IND	
+1.0.6.9.1.9.4.1.6	TimeFrame	"Time frame for the availability estimate, allocation, diversion, or use."	Header	1:1	Y			WC_TimeFrame_v0.3.xsd	D_DIVERSION_FLOW		
+1.0.6.9.1.9.4.1.6.1	TimeFrameStartName	"Starting date for the availability estimate, allocation, diversion, or use. Report as MM/DD."	string	5	Y	N		WC_Shared_v0.3.xsd	D_DIVERSION_FLOW	DIVERSION_START	
+1.0.6.9.1.9.4.1.6.2	TimeFrameEndName	"Ending date for the  availability estimate, allocation, diversion, or use. Report as MM/DD."	string	5	Y	N		WC_Shared_v0.3.xsd	D_DIVERSION_FLOW	DIVERSION_END	
+1.0.6.9.1.9.4.1.7	SourceName	Name of the Aquifer for groundwater sources or river basin for surface water sources.	string	60	N	N		WC_Shared_v0.3.xsd	D_DIVERSION_FLOW	SOURCE_NAME	
+1.0.6.9.1.9.4.1.8	ActualFlow	The actual amount of water diverted at this diversion for the reporting period.	Header	0:MANY	Y			WC_ActualFlow_v0.3.xsd	D_DIVERSION_ACTUAL		
+1.0.6.9.1.9.4.1.8.1	ActualVolume	The actual volume of water diverted at this diversion for the reporting period.	Header	0:1	Conditional		"Either ActualVolume or ActualRate must be reported, or both."	WC_ActualVolume_v0.3.xsd	D_DIVERSION_ACTUAL		
+1.0.6.9.1.9.4.1.8.1.1	ActualAmountNumber	Amout of water diverted.	decimal	"18,3"	Y	N		WC_Shared_v0.3.xsd	D_DIVERSION_ACTUAL	AMOUNT_VOLUME	
+1.0.6.9.1.9.4.1.8.1.2	ActualAmountUnitsCode	Unit of measure	string	10	Y	Y		WC_Shared_v0.3.xsd	D_DIVERSION_ACTUAL	UNIT_VOLUME	
+1.0.6.9.1.9.4.1.8.1.3	ValueTypeCode	"Indicator on how the actual amount was determined (i.e. calculated, measured, estimated, or reported)."	string	1	Y	Y		WC_Shared_v0.3.xsd	D_DIVERSION_ACTUAL	VALUE_TYPE_VOLUME	
+1.0.6.9.1.9.4.1.8.1.4	Method	"Method used to determine the metric, calculation or estimate."	Header	1:1	Conditional			WC_Method_v0.3.xsd	D_DIVERSION_ACTUAL	METHOD_ID_VOLUME	
+1.0.6.9.1.9.4.1.8.1.4.1	MethodContext	The owner of the method.  Methods should be registered with the exchange which is managed by WSWC	string	10	Y	Y	Required if Method is reported	WC_Shared_v0.3.xsd	LU_METHODS	CONTEXT	
+1.0.6.9.1.9.4.1.8.1.4.2	MethodName	The name of the method used.	string	35	Y	Y	Required if Method is reported	WC_Shared_v0.3.xsd	LU_METHODS	VALUE	
+1.0.6.9.1.9.4.1.8.1.4.3	DataCoverageValue	"An indicator of data coverage (i.e., spatial coverage or completeness of the data)"	decimal	"18,3"	N	Y	Should be reported as a percentage	WC_Shared_v0.3.xsd	LU_METHODS	DATA_COVERAGE	
+1.0.6.9.1.9.4.1.8.1.4.4	DataQualityValue	"An indicator of data quality or grading (e.g. fair, good, best, unreported), or using the NEMS data quality grading system."	string	35	N	N	"Any grading indicator is acceptable, but please use NEMS quality indicators if possible."	WC_Shared_v0.3.xsd	LU_METHODS	DATA_QUALITY	
+1.0.6.9.1.9.4.1.8.1.4.5	DataConfidenceValue	"An indicator of data confidence, should be a confidence interval (e.g. 90%, 50%, etc.)"	decimal	"18,3"	N	Y	Should be reported as a percentage	WC_Shared_v0.3.xsd	LU_METHODS	DATA_CONFIDENCE	
+1.0.6.9.1.9.4.1.8.2	ActualRate	The actual rate of water diverted at this diversion for the reporting period.	Header	0:1	Conditional		"Either ActualVolume or ActualRate must be reported, or both."	WC_ActualRate_v0.3.xsd	D_DIVERSION_ACTUAL		
+1.0.6.9.1.9.4.1.8.2.1	ActualAmountNumber	Amout of water diverted.	decimal	"18,3"	Y	N		WC_Shared_v0.3.xsd	D_DIVERSION_ACTUAL	AMOUNT_RATE	
+1.0.6.9.1.9.4.1.8.2.2	ActualAmountUnitsCode	Unit of measure	string	10	Y	Y		WC_Shared_v0.3.xsd	D_DIVERSION_ACTUAL	UNIT_RATE	
+1.0.6.9.1.9.4.1.8.2.3	ValueTypeCode	"Indicator on how the actual amount was determined (i.e. calculated, measured, estimated, or reported)."	string	1	Y	Y		WC_Shared_v0.3.xsd	D_DIVERSION_ACTUAL	VALUE_TYPE_RATE	
+1.0.6.9.1.9.4.1.8.2.4	Method	"Method used to determine the metric, calculation or estimate."	Header	1:1	Conditional			WC_Method_v0.3.xsd	D_DIVERSION_ACTUAL	METHOD_ID_RATE	
+1.0.6.9.1.9.4.1.8.2.4.1	MethodContext	The owner of the method.  Methods should be registered with the exchange which is managed by WSWC	string	10	Y	Y	Required if Method is reported	WC_Shared_v0.3.xsd	LU_METHODS	CONTEXT	
+1.0.6.9.1.9.4.1.8.2.4.2	MethodName	The name of the method used.	string	35	Y	Y	Required if Method is reported	WC_Shared_v0.3.xsd	LU_METHODS	VALUE	
+1.0.6.9.1.9.4.1.8.2.4.3	DataCoverageValue	"An indicator of data coverage (i.e., spatial coverage or completeness of the data)"	decimal	"18,3"	N	Y	Should be reported as a percentage	WC_Shared_v0.3.xsd	LU_METHODS	DATA_COVERAGE	
+1.0.6.9.1.9.4.1.8.2.4.4	DataQualityValue	"An indicator of data quality or grading (e.g. fair, good, best, unreported), or using the NEMS data quality grading system."	string	35	N	N	"Any grading indicator is acceptable, but please use NEMS quality indicators if possible."	WC_Shared_v0.3.xsd	LU_METHODS	DATA_QUALITY	
+1.0.6.9.1.9.4.1.8.2.4.5	DataConfidenceValue	"An indicator of data confidence, should be a confidence interval (e.g. 90%, 50%, etc.)"	decimal	"18,3"	N	Y	Should be reported as a percentage	WC_Shared_v0.3.xsd	LU_METHODS	DATA_CONFIDENCE	
+1.0.6.9.1.9.4.1.8.3	TimeFrame	"Time frame for the availability estimate, allocation, diversion, or use."	Header	1:1	Y			WC_TimeFrame_v0.3.xsd	D_DIVERSION_ACTUAL		
+1.0.6.9.1.9.4.1.8.3.1	TimeFrameStartName	"Starting date for the availability estimate, allocation, diversion, or use. Report as MM/DD."	string	5	Y	N		WC_Shared_v0.3.xsd	D_DIVERSION_ACTUAL	START_DATE	
+1.0.6.9.1.9.4.1.8.3.2	TimeFrameEndName	"Ending date for the  availability estimate, allocation, diversion, or use. Report as MM/DD."	string	5	Y	N		WC_Shared_v0.3.xsd	D_DIVERSION_ACTUAL	END_DATE	
+1.0.6.9.1.10	ConsumptiveUse	Information about the use of the water	Header	0:MANY	N			WC_UseGroup_v0.3.xsd	DETAIL_USE		
+1.0.6.9.1.10.1	UserIdentifier	A unique identifier for the water user	string	50	Y	N		WC_Shared_v0.3.xsd	DETAIL_USE	WATER_USE_ID	
+1.0.6.9.1.10.2	UserName	The name of the water user	string	100	N	N		WC_Shared_v0.3.xsd	DETAIL_USE	WATER_USE_NAME	
+1.0.6.9.1.10.3	DetailLocation	"The location of the detailed allocation, diversion, use, or return flow"	Header	1:MANY	Y			WC_DetailLocation_v0.3.xsd	D_USE_LOCATION		
+1.0.6.9.1.10.3.1	StateCode	Code representing the two-digit abbreviation for the state.	string	2	Y	Y		WC_Shared_v0.3.xsd	D_USE_LOCATION	STATE	
+1.0.6.9.1.10.3.2	ReportingUnitIdentifier	A unique identifier assigned to the reporting unit by the reporting organization.	string	35	Y	N		WC_Shared_v0.3.xsd	D_USE_LOCATION	REPORTING_UNIT_ID	
+1.0.6.9.1.10.3.3	CountyFipsCode	County FIPS code (including the state FIPS code) representing the county.	string	5	N	Y		WC_Shared_v0.3.xsd	D_USE_LOCATION	COUNTY_FIPS	
+1.0.6.9.1.10.3.4	HydrologicUnitCode	Code representing the USGS Hydrologic Unit (or HUC) at the most detailed level that the assignment can be made (6-digit being the lowest level of resolution allowed). Leading 0's should be included.	string	12	N	Y		WC_Shared_v0.3.xsd	D_USE_LOCATION	HUC	
+1.0.6.9.1.10.3.5	LatitudeNumber	Latitude of the consumptive use location in decimal degrees	decimal	"18,8"	N	N		WC_Shared_v0.3.xsd	D_USE_LOCATION	LAT_DD	
+1.0.6.9.1.10.3.6	LongitudeNumber	Longitude of the  consumptive use location in decimal degrees	decimal	"18,8"	N	N		WC_Shared_v0.3.xsd	D_USE_LOCATION	LONG_DD	
+1.0.6.9.1.10.3.7	EPSGCode	"Code for projection, with a preference for WGS_1984, EPSG of 4326"	decimal	10	N	N	Preference for EPSG of 4326 (GCS WGS 1984)	WC_Shared_v0.3.xsd	D_USE_LOCATION	EPSG_ID	
+1.0.6.9.1.10.3.8	NHDNetworkStatus	Whether or not the  consumptive use location is indexed to the USGS NHD network	string	5	Y	Y	Y or N values	WC_Shared_v0.3.xsd	D_USE_LOCATION	NHD_STATUS	
+1.0.6.9.1.10.3.9	NHDVersion	Version consumptive use of the NHD used for the indexing	string	5	N	N	Required if NHDNetworkStatus is Y	WC_Shared_v0.3.xsd	D_USE_LOCATION	NHD_VERSION	
+1.0.6.9.1.10.3.10	NHDUpdateDate	"If the  consumptive use location is indexed to the USGS NHD, this provides the date it was indexed to the NHD."	Date		N	Y	Required if NHDNetworkStatus is Y	WC_Shared_v0.3.xsd	D_USE_LOCATION	NHD_UPDATE_DATE	
+1.0.6.9.1.10.3.11	NHDReachCode	"If the  consumptive use location is indexed to the USGS NHD, this provides the Reach Code Identifier"	decimal	"18,8"	N	N	Required if NHDNetworkStatus is Y	WC_Shared_v0.3.xsd	D_USE_LOCATION	NHD_REACH	
+1.0.6.9.1.10.3.12	NHDMeasureNumber	"If the consumptive use location is indexed to the USGS NHD, this provides the Measure number that provides the event's location on a reach."	decimal	"18,8"	N	N	Required if NHDNetworkStatus is Y	WC_Shared_v0.3.xsd	D_USE_LOCATION	NHD_MEASURE	
+1.0.6.9.1.10.3.13	WFSReference	Web Feature Service feature reference for the place of use	Header	1:1	N	N		WC_WFSReference_v0.3.xsd	D_USE_LOCATION		
+1.0.6.9.1.10.3.13.1	WFSFeatureIdentifier	The feature ID reference number	string	12	Y	N	Required if there is a WFS Reference	WC_Shared_v0.3.xsd	D_USE_LOCATION	WFS_FEATURE_REF	
+1.0.6.9.1.10.4	UseEstimate	Estimate of water use	Header	1:MANY	N			WC_UseEstimateDetail_v0.3.xsd	D_CONSUMPTIVE_USE	BENEFICIAL_USE_ID	
+1.0.6.9.1.10.4.1	BeneficialUseContext	Owner for the use type (i.e. state abbreviation)	string	10	Y	Y		WC_Shared_v0.3.xsd	LU_BENEFICIAL_USE	CONTEXT	
+1.0.6.9.1.10.4.2	BeneficialUseTypeName	Name of the beneficial use.	string	35	Y	Y		WC_Shared_v0.3.xsd	LU_BENEFICIAL_USE	VALUE	
+1.0.6.9.1.10.4.3	UseAmount	Actual water used for detail data section	Header	1:1	N			WC_UseAmountDetail_v0.3.xsd	D_CONSUMPTIVE_USE		
+1.0.6.9.1.10.4.3.1	SourceTypeName	"Water Source: Ground, Surface, Reuse, Total"	string	10	N	Y		WC_Shared_v0.3.xsd	D_CONSUMPTIVE_USE	SOURCE_TYPE	
+1.0.6.9.1.10.4.3.2	FreshSalineIndicator	"Indicates whether the source is fresh water, saline water, or represents the total of both."	string	10	N	Y		WC_Shared_v0.3.xsd	D_CONSUMPTIVE_USE	FRESH_SALINE_IND	
+1.0.6.9.1.10.4.3.3	SourceName	Name of the Aquifer for groundwater sources or river basin for surface water sources.	string	60	N	N		WC_Shared_v0.3.xsd	D_CONSUMPTIVE_USE	SOURCE_NAME	
+1.0.6.9.1.10.4.3.4	CommunityWaterSupply	Additional Metadata for community water supply uses.	Header	0:MANY	N			WC_CommunityWaterSupply_v0.3.xsd	D_COMMUNITY_WATER_SUPPLY		
+1.0.6.9.1.10.4.3.4.1	TotalPopulationServedNumber	Population served by the community water supply	integer	18	Y	N	Required if CommunityWaterSupply is reported	WC_Shared_v0.3.xsd	D_COMMUNITY_WATER_SUPPLY	POPULATION_SERVED	
+1.0.6.9.1.10.4.3.4.2	CommunityWaterSupplyName	Name of the Community	string	60	N	N		WC_Shared_v0.3.xsd	D_COMMUNITY_WATER_SUPPLY	WATER_SUPPLY_NAME	
+1.0.6.9.1.10.4.3.5	IrrigationWaterSupply	Additional Metadata for irrigation water supply uses	Header	0:MANY	N			WC_IrrigationWaterSupply_v0.3.xsd	D_IRRIGATION		
+1.0.6.9.1.10.4.3.5.1	IrrigationMethodName	"Name of the method used to irrigate (i.e. sprinkler, flood, microirrigation, etc.)"	string	30	N	Y		WC_Shared_v0.3.xsd	D_IRRIGATION	IRRIGATION_METHOD	
+1.0.6.9.1.10.4.3.5.2	AcresIrrigatedNumber	Number of acres irrigated using this method.	decimal	"18,3"	Y	N	Required if IrrigationWaterSupply is reported.	WC_Shared_v0.3.xsd	D_IRRIGATION	ACRES_IRRIGATED	
+1.0.6.9.1.10.4.3.5.3	CropTypeName	Crop type being irrigated	string	60	N	Y		WC_Shared_v0.3.xsd	D_IRRIGATION	CROP_TYPE	
+1.0.6.9.1.10.4.3.6	ThermoElectricWaterSupply	Additional Metadata for thermoelectric water supply uses.	Header	0:MANY	N			WC_ThermoWaterSupply_v0.3.xsd	D_THERMOELECTRIC		
+1.0.6.9.1.10.4.3.6.1	GeneratorTypeName	The type of generator used to create electricity.	string	60	Y	Y	Required if ThermoElectricWaterSupply is reported.	WC_Shared_v0.3.xsd	D_THERMOELECTRIC	GENERATOR_TYPE	
+1.0.6.9.1.10.4.3.6.2	PowerCapacityNumber	The amount of power capacity in megawatt-hours.	decimal	"18,3"	Y	N		WC_Shared_v0.3.xsd	D_THERMOELECTRIC	POWER_CAPACITY	
+1.0.6.9.1.10.4.3.7	UseVolume	The actual volume of water diverted at this diversion for the reporting period.	Header	0:MANY	N		Required if UseAmount is reported.	WC_UseVolumeDetail_v0.3.xsd	D_USE_AMOUNT		
+1.0.6.9.1.10.4.3.7.1	AmountNumber	"Value reported, measured, calculated, or estimated."	decimal	"18,3"	Y	N	Required if AvailabilityAmount is reported	WC_Shared_v0.3.xsd	D_USE_AMOUNT	AMOUNT_VOLUME	
+1.0.6.9.1.10.4.3.7.2	AmountUnitsCode	Unit of measure	string	10	Y	Y	Required if AvailabilityAmount is reported	WC_Shared_v0.3.xsd	D_USE_AMOUNT	UNIT_VOLUME	
+1.0.6.9.1.10.4.3.7.3	ValueTypeCode	"Indicator on how the actual amount was determined (i.e. calculated, measured, estimated, or reported)."	string	1	Y	Y		WC_Shared_v0.3.xsd	D_USE_AMOUNT	VALUE_TYPE_VOLUME	
+1.0.6.9.1.10.4.3.7.4	Method	"Method used to determine the metric, calculation or estimate."	Header	1:1	Conditional			WC_Method_v0.3.xsd	D_USE_AMOUNT	METHOD_ID_VOLUME	
+1.0.6.9.1.10.4.3.7.4.1	MethodContext	The owner of the method.  Methods should be registered with the exchange which is managed by WSWC	string	10	Y	Y	Required if Method is reported	WC_Shared_v0.3.xsd	LU_METHODS	CONTEXT	
+1.0.6.9.1.10.4.3.7.4.2	MethodName	The name of the method used.	string	35	Y	Y	Required if Method is reported	WC_Shared_v0.3.xsd	LU_METHODS	VALUE	
+1.0.6.9.1.10.4.3.7.4.3	DataCoverageValue	"An indicator of data coverage (i.e., spatial coverage or completeness of the data)"	decimal	"18,3"	N	Y	Should be reported as a percentage	WC_Shared_v0.3.xsd	LU_METHODS	DATA_COVERAGE	
+1.0.6.9.1.10.4.3.7.4.4	DataQualityValue	"An indicator of data quality or grading (e.g. fair, good, best, unreported), or using the NEMS data quality grading system."	string	35	N	N	"Any grading indicator is acceptable, but please use NEMS quality indicators if possible."	WC_Shared_v0.3.xsd	LU_METHODS	DATA_QUALITY	
+1.0.6.9.1.10.4.3.7.4.5	DataConfidenceValue	"An indicator of data confidence, should be a confidence interval (e.g. 90%, 50%, etc.)"	decimal	"18,3"	N	Y	Should be reported as a percentage	WC_Shared_v0.3.xsd	LU_METHODS	DATA_CONFIDENCE	
+1.0.6.9.1.10.4.3.7.5	TimeFrame	"Time frame for the availability estimate, allocation, diversion, or use."	Header	1:1	Y			WC_TimeFrame_v0.3.xsd	D_USE_AMOUNT		
+1.0.6.9.1.10.4.3.7.5.1	TimeFrameStartName	"Starting date for the availability estimate, allocation, diversion, or use. Report as MM/DD."	string	5	Y	N		WC_Shared_v0.3.xsd	D_USE_AMOUNT	START_DATE	
+1.0.6.9.1.10.4.3.7.5.2	TimeFrameEndName	"Ending date for the  availability estimate, allocation, diversion, or use. Report as MM/DD."	string	5	Y	N		WC_Shared_v0.3.xsd	D_USE_AMOUNT	END_DATE	
+1.0.6.9.1.11	ReturnFlow	The amount and location of water returned.	Header	0:MANY	N			WC_ReturnFlow_v0.3.xsd	DETAIL_RETURN_FLOW		
+1.0.6.9.1.11.1	ReturnFlowIdentifier	Unique identifier for the return flow.	string	35	Y	N		WC_Shared_v0.3.xsd	DETAIL_RETURN_FLOW	RETURN_FLOW_ID	
+1.0.6.9.1.11.2	ReturnFlowName	Name for the return flow.	string	80	N	N		WC_Shared_v0.3.xsd	DETAIL_RETURN_FLOW	RETURN_FLOW_NAME	
+1.0.6.9.1.11.3	DetailLocation	"The Location of the detailed  allocation, diversion, use, or return flow."	Header	1:1	Y			WC_DetailLocation_v0.3.xsd	DETAIL_RETURN_FLOW		
+1.0.6.9.1.11.3.1	StateCode	Code representing the two-digit abbreviation for the state.	string	2	Y	Y		WC_Shared_v0.3.xsd	DETAIL_RETURN_FLOW	STATE	
+1.0.6.9.1.11.3.2	ReportingUnitIdentifier	A unique identifier assigned to the reporting unit by the reporting organization.	string	35	Y	N		WC_Shared_v0.3.xsd	DETAIL_RETURN_FLOW	REPORTING_UNIT_ID	
+1.0.6.9.1.11.3.3	CountyFipsCode	County FIPS code (including the state FIPS code) representing the county.	string	5	N	Y		WC_Shared_v0.3.xsd	DETAIL_RETURN_FLOW	COUNTY_FIPS	
+1.0.6.9.1.11.3.4	HydrologicUnitCode	Code representing the USGS Hydrologic Unit (or HUC) at the most detailed level that the assignment can be made (6-digit being the lowest level of resolution allowed). Leading 0's should be included.	string	12	N	Y		WC_Shared_v0.3.xsd	DETAIL_RETURN_FLOW	HUC	
+1.0.6.9.1.11.3.5	LatitudeNumber	Latitude of the return flow location in decimal degrees	decimal	"18,8"	N	N		WC_Shared_v0.3.xsd	DETAIL_RETURN_FLOW	LAT_DD	
+1.0.6.9.1.11.3.6	LongitudeNumber	Longitude of the return flow location in decimal degrees	decimal	"18,8"	N	N		WC_Shared_v0.3.xsd	DETAIL_RETURN_FLOW	LONG_DD	
+1.0.6.9.1.11.3.7	EPSGCode	"Code for projection, with a preference for WGS_1984, EPSG of 4326"	decimal	10	N	N	Preference for EPSG of 4326 (GCS WGS 1984)	WC_Shared_v0.3.xsd	DETAIL_RETURN_FLOW	EPSG_ID	
+1.0.6.9.1.11.3.8	NHDNetworkStatus	Whether or not the return flow location is indexed to the USGS NHD network	string	5	Y	Y	Y or N values	WC_Shared_v0.3.xsd	DETAIL_RETURN_FLOW	NHD_STATUS	
+1.0.6.9.1.11.3.9	NHDVersion	Version return flow of the NHD used for the indexing	string	5	N	N	Required if NHDNetworkStatus is Y	WC_Shared_v0.3.xsd	DETAIL_RETURN_FLOW	NHD_VERSION	
+1.0.6.9.1.11.3.10	NHDUpdateDate	"If the return flow location is indexed to the USGS NHD, this provides the date it was indexed to the NHD."	Date		N	Y	Required if NHDNetworkStatus is Y	WC_Shared_v0.3.xsd	DETAIL_RETURN_FLOW	NHD_UPDATE_DATE	
+1.0.6.9.1.11.3.11	NHDReachCode	"If the return flow location is indexed to the USGS NHD, this provides the Reach Code Identifier"	decimal	"18,8"	N	N	Required if NHDNetworkStatus is Y	WC_Shared_v0.3.xsd	DETAIL_RETURN_FLOW	NHD_REACH	
+1.0.6.9.1.11.3.12	NHDMeasureNumber	"If the return flow location is indexed to the USGS NHD, this provides the Measure number that provides the event's location on a reach."	decimal	"18,8"	N	N	Required if NHDNetworkStatus is Y	WC_Shared_v0.3.xsd	DETAIL_RETURN_FLOW	NHD_MEASURE	
+1.0.6.9.1.11.3.13	WFSReference	Web Feature Service feature reference for the return flow	Header	1:1	N	N		WC_WFSReference_v0.3.xsd	DETAIL_RETURN_FLOW		
+1.0.6.9.1.11.3.13.1	WFSFeatureIdentifier	The feature ID reference number	string	12	Y	N	Required if there is a WFS Reference	WC_Shared_v0.3.xsd	DETAIL_RETURN_FLOW	WFS_FEATURE_REF	
+1.0.6.9.1.11.4	ReturnFlowAmount	The actual amount of water returned at this location	Header	1:MANY	Y			WC_ReturnFlowAmount_v0.3.xsd	D_RETURN_FLOW_ACTUAL		
+1.0.6.9.1.11.4.1	ReturnVolume	The actual volume of water returned at this location for the reporting period	Header	0:1	Conditional		"Either ReturnVolume, ReturnRate, or both must be provided."	WC_ReturnVolume_v0.3.xsd	D_RETURN_FLOW_ACTUAL		
+1.0.6.9.1.11.4.1.1	AmountNumber	"Value reported, measured, calculated, or estimated."	decimal	"18,3"	Y	N	Required if AvailabilityAmount is reported	WC_Shared_v0.3.xsd	D_RETURN_FLOW_ACTUAL	AMOUNT_VOLUME	
+1.0.6.9.1.11.4.1.2	AmountUnitsCode	Unit of measure	string	10	Y	Y	Required if AvailabilityAmount is reported	WC_Shared_v0.3.xsd	D_RETURN_FLOW_ACTUAL	UNIT_VOLUME	
+1.0.6.9.1.11.4.1.3	ValueTypeCode	"Indicator on how the actual amount was determined (i.e. calculated, measured, estimated, or reported)."	string	1	Y	Y		WC_Shared_v0.3.xsd	D_RETURN_FLOW_ACTUAL	VALUE_TYPE_VOLUME	
+1.0.6.9.1.11.4.1.4	Method	"Method used to determine the metric, calculation or estimate."	Header	1:1	Conditional			WC_Method_v0.3.xsd	D_RETURN_FLOW_ACTUAL	METHOD_ID_VOLUME	
+1.0.6.9.1.11.4.1.4.1	MethodContext	The owner of the method.  Methods should be registered with the exchange which is managed by WSWC	string	10	Y	Y	Required if Method is reported	WC_Shared_v0.3.xsd	LU_METHODS	CONTEXT	
+1.0.6.9.1.11.4.1.4.2	MethodName	The name of the method used.	string	35	Y	Y	Required if Method is reported	WC_Shared_v0.3.xsd	LU_METHODS	VALUE	
+1.0.6.9.1.11.4.1.4.3	DataCoverageValue	"An indicator of data coverage (i.e., spatial coverage or completeness of the data)"	decimal	"18,3"	N	Y	Should be reported as a percentage	WC_Shared_v0.3.xsd	LU_METHODS	DATA_COVERAGE	
+1.0.6.9.1.11.4.1.4.4	DataQualityValue	"An indicator of data quality or grading (e.g. fair, good, best, unreported), or using the NEMS data quality grading system."	string	35	N	N	"Any grading indicator is acceptable, but please use NEMS quality indicators if possible."	WC_Shared_v0.3.xsd	LU_METHODS	DATA_QUALITY	
+1.0.6.9.1.11.4.1.4.5	DataConfidenceValue	"An indicator of data confidence, should be a confidence interval (e.g. 90%, 50%, etc.)"	decimal	"18,3"	N	Y	Should be reported as a percentage	WC_Shared_v0.3.xsd	LU_METHODS	DATA_CONFIDENCE	
+1.0.6.9.1.11.4.2	ReturnRate	The actual rate of water returned at this location for the reporting period.	Header	0:1	Conditional		"Either ReturnVolume, ReturnRate, or both must be provided."	WC_ReturnRate_v0.3.xsd	D_RETURN_FLOW_ACTUAL		
+1.0.6.9.1.11.4.2.1	AmountNumber	"Value reported, measured, calculated, or estimated."	decimal	"18,3"	Y	N	Required if AvailabilityAmount is reported	WC_Shared_v0.3.xsd	D_RETURN_FLOW_ACTUAL	AMOUNT_RATE	
+1.0.6.9.1.11.4.2.2	AmountUnitsCode	Unit of measure	string	10	Y	Y	Required if AvailabilityAmount is reported	WC_Shared_v0.3.xsd	D_RETURN_FLOW_ACTUAL	UNIT_RATE	
+1.0.6.9.1.11.4.2.3	ValueTypeCode	"Indicator on how the actual amount was determined (i.e. calculated, measured, estimated, or reported)."	string	1	Y	Y		WC_Shared_v0.3.xsd	D_RETURN_FLOW_ACTUAL	VALUE_TYPE_RATE	
+1.0.6.9.1.11.4.2.4	Method	"Method used to determine the metric, calculation or estimate."	Header	1:1	Conditional			WC_Method_v0.3.xsd	D_RETURN_FLOW_ACTUAL	METHOD_ID_RATE	
+1.0.6.9.1.11.4.2.4.1	MethodContext	The owner of the method.  Methods should be registered with the exchange which is managed by WSWC	string	10	Y	Y	Required if Method is reported	WC_Shared_v0.3.xsd	LU_METHODS	CONTEXT	
+1.0.6.9.1.11.4.2.4.2	MethodName	The name of the method used.	string	35	Y	Y	Required if Method is reported	WC_Shared_v0.3.xsd	LU_METHODS	VALUE	
+1.0.6.9.1.11.4.2.4.3	DataCoverageValue	"An indicator of data coverage (i.e., spatial coverage or completeness of the data)"	decimal	"18,3"	N	Y	Should be reported as a percentage	WC_Shared_v0.3.xsd	LU_METHODS	DATA_COVERAGE	
+1.0.6.9.1.11.4.2.4.4	DataQualityValue	"An indicator of data quality or grading (e.g. fair, good, best, unreported), or using the NEMS data quality grading system."	string	35	N	N	"Any grading indicator is acceptable, but please use NEMS quality indicators if possible."	WC_Shared_v0.3.xsd	LU_METHODS	DATA_QUALITY	
+1.0.6.9.1.11.4.2.4.5	DataConfidenceValue	"An indicator of data confidence, should be a confidence interval (e.g. 90%, 50%, etc.)"	decimal	"18,3"	N	Y	Should be reported as a percentage	WC_Shared_v0.3.xsd	LU_METHODS	DATA_CONFIDENCE	
+1.0.6.9.1.11.4.2.5	TimeFrame	"Time frame for the availability estimate, allocation, diversion, or use."	Header	1:1	Y			WC_TimeFrame_v0.3.xsd	D_RETURN_FLOW_ACTUAL		
+1.0.6.9.1.11.4.2.5.1	TimeFrameStartName	"Starting date for the availability estimate, allocation, diversion, or use. Report as MM/DD."	string	5	Y	N		WC_Shared_v0.3.xsd	D_RETURN_FLOW_ACTUAL	START_DATE	
+1.0.6.9.1.11.4.2.5.2	TimeFrameEndName	"Ending date for the  availability estimate, allocation, diversion, or use. Report as MM/DD."	string	5	Y	N		WC_Shared_v0.3.xsd	D_RETURN_FLOW_ACTUAL	END_DATE	
